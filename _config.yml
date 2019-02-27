@@ -1,1 +1,3 @@
+title: shellspec
+description: shellspec is a BDD based testing framework for POSIX compatible shell scripts.
 theme: jekyll-theme-slate
