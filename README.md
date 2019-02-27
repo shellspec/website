@@ -1,37 +1,41 @@
-## Welcome to GitHub Pages
+![preview](preview.png)
 
-You can use the [editor on GitHub](https://github.com/ko1nksm/shellspec-website/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Features
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* Support POSIX compatible shell (dash, bash, ksh, busybox, etc...)
+* BDD style syntax
+* The specfile is a valid shell script language syntax
+* Pure shell script implementation
+* Minimum Dependencies (Use only a few POSIX compliant command)
+* Nestable groups with scope like lexical scope
+* Before / After hooks
+* Skip / Pending
+* Mocking and stubbing (temporary function override)
+* Built-in simple task runner
+* Modern reporting (colorize, failure line number)
+* Extensible architecture (custom matcher, custom formatter, etc...)
+* shellspec is tested by shellspec
 
-### Markdown
+## Specfile syntax
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```sh
+Describe 'sample' # Example group block
+  Describe 'bc command'
+    add() { echo " + " | bc; }
 
-```markdown
-Syntax highlighted code block
+    Example 'perform addition' # Example block
+      When call add 2 2 # Evaluation
+      The output should eq 4  # Expectation
+    End
+  End
 
-# Header 1
-## Header 2
-### Header 3
+  Describe 'implemented by shell function'
+    . ./mylib.sh # add() function defined
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+    Example 'perform addition'
+      When call add 2 2
+      The output should eq 4
+    End
+  End
+End
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ko1nksm/shellspec-website/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
