@@ -3,3 +3,4 @@ description: BDD based testing framework for POSIX compatible shell scripts.
 theme: jekyll-theme-slate
 github:
   repository_url: https://github.com/ko1nksm/shellspec
+google_analytics: UA-50458188-3
