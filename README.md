@@ -1,4 +1,4 @@
-![preview](preview.png)
+<script src="https://asciinema.org/a/231346.js" id="asciicast-231346" async data-autoplay="true" data-cols="100" data-rows="25"></script>
 
 ## Features
 
