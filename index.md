@@ -2,7 +2,9 @@
 layout: default
 title: shellspec
 ---
-## Let's get started!
+# Let's test the your shell script!
+
+## Get started!
 
 <script src="https://asciinema.org/a/232161.js" id="asciicast-232161" async data-autoplay="true" data-cols="100" data-rows="25"></script>
 
