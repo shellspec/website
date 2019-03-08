@@ -1,3 +1,5 @@
+## Let's get started!
+
 <script src="https://asciinema.org/a/232161.js" id="asciicast-232161" async data-autoplay="true" data-cols="100" data-rows="25"></script>
 
 ## Features
@@ -39,3 +41,19 @@ Describe 'sample' # Example group block
   End
 End
 ```
+
+## Reporter
+
+### Formatters
+
+#### progress formatter (default)
+
+<script src="https://asciinema.org/a/232403.js" id="asciicast-232403" async data-cols="100" data-rows="30"></script>
+
+#### documentation formatter
+
+<script src="https://asciinema.org/a/232401.js" id="asciicast-232401" async data-cols="100" data-rows="40"></script>
+
+#### tap formatter
+
+<script src="https://asciinema.org/a/232404.js" id="asciicast-232404" async data-cols="100" data-rows="12"></script>
