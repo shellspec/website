@@ -1,5 +1,5 @@
 title: shellspec
-description: BDD based testing framework for POSIX compatible shell scripts.
+description: BDD style testing framework for POSIX compatible shell script
 theme: jekyll-theme-slate
 github:
   repository_url: https://github.com/ko1nksm/shellspec
