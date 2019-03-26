@@ -27,7 +27,7 @@ shellspec --init
 #ghostplay batch
 cat << 'HERE' > spec/hello_spec.sh
 Describe 'hello.sh'
-  . lib/hello.sh
+  Include lib/hello.sh
   Example 'hello'
     When call hello shellspec
     The output should equal 'Hello shellspec!'

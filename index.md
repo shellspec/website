@@ -27,22 +27,22 @@ title: shellspec
 ## Specfile syntax
 
 ```sh
-Describe 'sample' # Example group block
+Describe 'sample' # Example group
   Describe 'bc command'
-    add() { echo " + " | bc; }
+    add() { echo "$1 + $2" | bc; }
 
-    Example 'perform addition' # Example block
-      When call add 2 2 # Evaluation
-      The output should eq 4  # Expectation
+    It 'performs addition' # Example
+      When call add 2 3 # Evaluation
+      The output should eq 5  # Expectation
     End
   End
 
   Describe 'implemented by shell function'
-    . ./mylib.sh # add() function defined
+    Include ./mylib.sh # add() function defined
 
-    Example 'perform addition'
-      When call add 2 2
-      The output should eq 4
+    It 'performs addition'
+      When call add 2 3
+      The output should eq 5
     End
   End
 End
