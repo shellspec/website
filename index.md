@@ -18,6 +18,8 @@ title: shellspec
 * Nestable groups with scope like lexical scope
 * Before / After hooks
 * Skip / Pending
+* Data helper that easy to input from stdin
+* Embedded text that easier to use than heredoc at indented code
 * Mocking and stubbing (temporary function override)
 * Built-in simple task runner
 * Modern reporting (colorize, failure line number)
