@@ -179,15 +179,15 @@ shellspec has three reporting formatter, `progress`, `documentation`, `tap`.
 
 #### progress formatter (default)
 
-<script src="https://asciinema.org/a/232403.js" id="asciicast-232403" async data-cols="100" data-rows="30"></script>
+<script src="https://asciinema.org/a/232403.js" id="asciicast-232403" async data-cols="100" data-rows="30" data-autoplay="true"></script>
 
 #### documentation formatter
 
-<script src="https://asciinema.org/a/232401.js" id="asciicast-232401" async data-cols="100" data-rows="40"></script>
+<script src="https://asciinema.org/a/232401.js" id="asciicast-232401" async data-cols="100" data-rows="40" data-autoplay="true"></script>
 
 #### tap formatter
 
-<script src="https://asciinema.org/a/232404.js" id="asciicast-232404" async data-cols="100" data-rows="12"></script>
+<script src="https://asciinema.org/a/232404.js" id="asciicast-232404" async data-cols="100" data-rows="12" data-autoplay="true"></script>
 
 
 ### 3. Implements by pure POSIX compatible shell scripts
