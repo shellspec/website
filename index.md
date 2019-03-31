@@ -4,7 +4,7 @@ title: shellspec
 ---
 # Let's test the your shell script!
 
-[shellspec](https://github.com/ko1nksm/shellspec) is a BDD style testing framework for POSIX compatible shell script
+[shellspec](https://github.com/ko1nksm/shellspec) is a BDD style unit testing framework for POSIX compatible shell script
 
 ## Get started!
 
@@ -56,13 +56,13 @@ End
 
 ### 1. It's a BDD style
 
-shellspec is a BDD style testing framework. You can write specifications with
+shellspec is a BDD style unit testing framework. You can write specifications with
 DSL that nearly to natural language. And also those DSL are structured and executable.
 
 shellspec is created inspired by rspec, and it has a DSL suitable for shell scripts.
 And it's a readability even if you are not familiar with shell scripts syntax.
 
-#### Comparison with other testing frameworks.
+#### Comparison with other unit testing frameworks.
 
 ##### Comparison with Bats
 
@@ -215,7 +215,7 @@ subshell, it executes in own environment. This achieves isolation of tests.
 
 ### 5. And what you need
 
-Besides, shellspec has the necessary features for testing.
+Besides, shellspec has the necessary features for unit testing.
 
 * `Before` / `After` hooks for preparation and cleaning up.
 * `Skip` for skipping tests.
