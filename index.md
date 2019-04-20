@@ -8,7 +8,7 @@ title: shellspec
 
 ## Get started!
 
-<script src="https://asciinema.org/a/236735.js" id="asciicast-236735" async data-autoplay="true" data-cols="100" data-rows="25"></script>
+<script src="https://asciinema.org/a/241934.js" id="asciicast-241934" async data-autoplay="true" data-cols="100" data-rows="25"></script>
 
 ## Features
 
@@ -18,6 +18,7 @@ title: shellspec
 * Pure shell script implementation
 * Minimum Dependencies (Use only a few POSIX compliant command)
 * Parallel execution
+* Filtering (Running by line number and focused groups /examples)
 * Nestable groups with scope like lexical scope
 * Before / After hooks
 * Skip / Pending
