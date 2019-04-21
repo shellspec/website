@@ -172,7 +172,26 @@ Describe 'Adding'
 End
 ```
 
-### 2. Modern reporting
+### 2. Fast testing
+
+If failed your tests, display error with the line number. You can re-run the
+failed tests with the line number.
+
+If you want to run specific test only, you can use `--focus` option to run
+focused tests. (To focus, prepend 'f' to groups / examples in specfiles.
+e.g. `Describe` -> `fDescribe`, `It` -> `fIt`, etc.)
+
+If you want to temporarily skip some tests, prepend 'x' to groups / examples in
+specfiles (like `xDescribe`, `xIt`, etc.)
+
+And more, using parallel execution may increase speed running tests depending on
+your tests and the testing hardware. (but in my opinion it's fast enough without
+parallel execution.)
+
+Those feature are implemented only by shell script, so you can use it all shells.
+(Do not need `$LINENO` variable of shell, and not requires GNU parallel)
+
+### 3. Modern reporting
 
 shellspec has modern reporting similar like rspec. When specs fails, it reports
 expected and actual with line number and colored.
@@ -192,7 +211,7 @@ shellspec has three reporting formatter, `progress`, `documentation`, `tap`.
 <script src="https://asciinema.org/a/232404.js" id="asciicast-232404" async data-cols="100" data-rows="12" data-autoplay="true"></script>
 
 
-### 3. Implements by pure POSIX compatible shell scripts
+### 4. Implements by pure POSIX compatible shell scripts
 
 shellspec is implements by 100% pure POSIX compatible shell scripts.
 The required external commands are basic few POSIX compliant commands only.
@@ -203,7 +222,7 @@ is written by POSIX compatible syntax, but you can use extended syntax of bash, 
 It works on Linux (e.g Debian, Alpine Linux on Docker, OpenWrt), macOS,
 Unix (e.g. Solaris) and Windows Subsystem for Linux. Works in more environments.
 
-### 4. The specfile is compatible with shell script syntax
+### 5. The specfile is compatible with shell script syntax
 
 The specfile looks like natural language, but also compatible with shell script
 syntax. therefore you can mixing shell script code in specfile and also checking
@@ -215,15 +234,15 @@ block, scope and temporary function redefinition for mock/stub.
 Those features is realized by code translation. The block of DSL translate to
 subshell, it executes in own environment. This achieves isolation of tests.
 
-### 5. And what you need
+### 6. And what you need
 
 Besides, shellspec has the necessary features for unit testing.
 
 * `Before` / `After` hooks for preparation and cleaning up.
-* `Skip` for skipping tests.
 * `Pending` to indicate the to be implementation.
 * `Data` helper that easy to input from stdin.
-* Embedded text that easier to use than heredoc at indented code.
+* `%text` directive that easier to use than heredoc at indented code.
+* `%=` (`%putsn`) directive that can be used in place of non-portable `echo`.
 * Built-in simple task runner
 
 shellspec is designed with an extensible architecture, so you can create
