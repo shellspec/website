@@ -12,19 +12,18 @@ title: shellspec
 
 ## Features
 
-* Support POSIX compatible shell (dash, bash, ksh, busybox, etc...)
-* BDD style syntax
-* The specfile is a valid shell script language syntax
-* Pure shell script implementation
-* Minimum Dependencies (Use only a few POSIX compliant command)
-* Parallel execution
-* Filtering (Running by line number and focused groups /examples)
-* Nestable groups with scope like lexical scope
-* Before / After hooks
-* Skip / Pending
-* Data helper that easy to input from stdin
-* Embedded text that easier to use than heredoc at indented code
+* Support POSIX compliant shell (dash, bash, ksh, busybox, etc...)
+* BDD style specfile syntax
+* The specfile is compatible with shell script syntax
+* Implemented by shell script
+* Minimal dependencies (use only a few basic POSIX compliant command)
+* Nestable block with scope like lexical scope
 * Mocking and stubbing (temporary function override)
+* Parallel execution, random ordering execution
+* Filtering (line number, id, focus, tag and example name)
+* The hook before and after of the examples
+* Skip and pending of the examples
+* Useful and portability standard input / output directive for testing
 * Built-in simple task runner
 * Modern reporting (colorize, failure line number)
 * Extensible architecture (custom matcher, custom formatter, etc...)
