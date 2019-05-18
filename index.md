@@ -4,7 +4,7 @@ title: shellspec
 ---
 # Let's test the your shell script!
 
-[shellspec](https://github.com/ko1nksm/shellspec) is a BDD style unit testing framework for POSIX compatible shell script
+[shellspec](https://github.com/shellspec/shellspec) is a BDD style unit testing framework for POSIX compatible shell script
 
 ## Get started!
 
@@ -248,4 +248,4 @@ Besides, shellspec has the necessary features for unit testing.
 shellspec is designed with an extensible architecture, so you can create
 custom matcher, custom modifier and so on.
 
-shellspec is a powerful but simple to use. Let's enjoy test with [shellspec](https://github.com/ko1nksm/shellspec)!
+shellspec is a powerful but simple to use. Let's enjoy test with [shellspec](https://github.com/shellspec/shellspec)!
