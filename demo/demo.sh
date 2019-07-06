@@ -6,15 +6,15 @@ SCRIPT_DIR=$(cd "$(dirname "${GP_SOURCE:-$0}")"; pwd)
 cd "$SCRIPT_DIR"
 ghostplay_cleanup_handler() {
   cd "$SCRIPT_DIR"
-  if [ -d project ]; then
-    rm -rf project
+  if [ -d hello ]; then
+    rm -rf hello
   fi
 }
 #ghostplay end
 
 # Create your project directory
-mkdir project
-cd project
+mkdir hello
+cd hello
 
 #ghostplay sleep 3
 
@@ -43,7 +43,7 @@ mkdir lib
 #ghostplay batch
 cat << 'HERE' > lib/hello.sh
 hello() {
-  :
+  :  not implemented
 }
 HERE
 #ghostplay end
@@ -55,7 +55,7 @@ shellspec
 
 #ghostplay sleep 3
 
-# Write hello function (of course you can use your favorite editor)
+# Write hello function
 #ghostplay batch
 cat << 'HERE' > lib/hello.sh
 hello() {
