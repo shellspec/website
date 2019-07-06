@@ -1,0 +1,32 @@
+hello() {
+  echo "hello $1"
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+  : dummy
+}

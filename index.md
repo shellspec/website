@@ -4,11 +4,11 @@ title: shellspec
 ---
 # Let's test the your shell script!
 
-[shellspec](https://github.com/shellspec/shellspec) is a BDD style unit testing framework for POSIX compatible shell script
+[shellspec](https://github.com/shellspec/shellspec) is a BDD style unit testing framework for POSIX compliant shell script
 
 ## Get started!
 
-<script src="https://asciinema.org/a/241934.js" id="asciicast-241934" async data-autoplay="true" data-cols="100" data-rows="25"></script>
+<script src="https://asciinema.org/a/255964.js" id="asciicast-255964" async data-autoplay="true" data-cols="100" data-rows="25"></script>
 
 ## Features
 
@@ -24,8 +24,9 @@ title: shellspec
 * The hook before and after of the examples
 * Skip and pending of the examples
 * Useful and portability standard input / output directive for testing
-* Built-in simple task runner
 * Modern reporting (colorize, failure line number)
+* Coverage ([kcov](http://simonkagstrom.github.io/kcov/index.html) integration, requires kcov and bash)
+* Built-in simple task runner
 * Extensible architecture (custom matcher, custom formatter, etc...)
 * shellspec is tested by shellspec
 
@@ -55,7 +56,26 @@ End
 
 ## Why use shellspec?
 
-### 1. It's a BDD style
+### 1. Comparison with other unit testing frameworks.
+
+|                        | shellspec      | shunit2        | bats-core             |
+| ---------------------- | -------------- | -------------- | --------------------- |
+| Supported shells       | POSIX shell    | POSIX shell    | bash only             |
+| Framework style        | BDD            | xUnit          | original              |
+| Spec/test syntax       | shell script   | shell script   | original              |
+| Nested block           | support        | -              | -                     |
+| Skip / Pending         | both           | skip only      | skip only             |
+| Mock / Stub            | built-in       | -              | -                     |
+| Assertion line number  | all shells     | limited shells | bash only             |
+| Parallel execution     | native support | -              | requires GNU parallel |
+| Random execution       | native support | -              | -                     |
+| Execute by name        | support        | support        | support               |
+| Execute by line number | support        | -              | -                     |
+| TAP formatter          | built-in       | -              | built-in              |
+| JUnit XML formatter    | built-in       | -              | -                     |
+| Coverage               | integration    | manual         | manual                |
+
+### 2. It's a BDD style
 
 shellspec is a BDD style unit testing framework. You can write specifications with
 DSL that nearly to natural language. And also those DSL are structured and executable.
@@ -63,9 +83,7 @@ DSL that nearly to natural language. And also those DSL are structured and execu
 shellspec is created inspired by rspec, and it has a DSL suitable for shell scripts.
 And it's a readability even if you are not familiar with shell scripts syntax.
 
-#### Comparison with other unit testing frameworks.
-
-##### Comparison with Bats
+#### Comparison with Bats
 
 * [Bats: Bash Automated Testing System](https://github.com/sstephenson/bats)
 * [Bats-core: Bash Automated Testing System (2018)](https://github.com/bats-core/bats-core)
@@ -105,7 +123,7 @@ Example "addition using dc"
 End
 ```
 
-##### Comparison with shunit2
+#### Comparison with shunit2
 
 [shUnit2 is a xUnit based unit test framework for Bourne based shell scripts.](https://github.com/kward/shunit2)
 
@@ -188,31 +206,34 @@ your tests and the testing hardware. (but in my opinion it's fast enough without
 parallel execution.)
 
 Those feature are implemented only by shell script, so you can use it all shells.
-(Do not need `$LINENO` variable of shell, and not requires GNU parallel)
+(Do not requires [$LINENO](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_05_03) variable and [GNU parallel](https://www.gnu.org/software/parallel/))
 
 ### 3. Modern reporting
 
 shellspec has modern reporting similar like rspec. When specs fails, it reports
 expected and actual with line number and colored.
 
-shellspec has three reporting formatter, `progress`, `documentation`, `tap`.
+shellspec has three reporting formatter, `progress`, `documentation`, `tap`, `junit`.
 
 #### progress formatter (default)
 
-<script src="https://asciinema.org/a/232403.js" id="asciicast-232403" async data-cols="100" data-rows="30" data-autoplay="true"></script>
+<script src="https://asciinema.org/a/255960.js" id="asciicast-255960" async data-cols="100" data-rows="24" data-autoplay="true"></script>
 
 #### documentation formatter
 
-<script src="https://asciinema.org/a/232401.js" id="asciicast-232401" async data-cols="100" data-rows="40" data-autoplay="true"></script>
+<script src="https://asciinema.org/a/255961.js" id="asciicast-255961" async data-cols="100" data-rows="37" data-autoplay="true"></script>
 
-#### tap formatter
+#### TAP formatter
 
-<script src="https://asciinema.org/a/232404.js" id="asciicast-232404" async data-cols="100" data-rows="12" data-autoplay="true"></script>
+<script src="https://asciinema.org/a/255962.js" id="asciicast-255962" async data-cols="100" data-rows="12" data-autoplay="true"></script>
 
+#### JUnit XML formatter
 
-### 4. Implements by pure POSIX compatible shell scripts
+<script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
 
-shellspec is implements by 100% pure POSIX compatible shell scripts.
+### 4. Implements by pure POSIX compliant shell scripts
+
+shellspec is implements by 100% pure POSIX compliant shell scripts.
 The required external commands are basic few POSIX compliant commands only.
 
 Not only bash, it supports dash, zsh, ksh, yash, posh and busybox ash. shellspec
@@ -233,7 +254,15 @@ block, scope and temporary function redefinition for mock/stub.
 Those features is realized by code translation. The block of DSL translate to
 subshell, it executes in own environment. This achieves isolation of tests.
 
-### 6. And what you need
+### 6. Coverage
+
+shellspec integrated with kcov for easy to coverage.
+
+<script src="https://asciinema.org/a/255965.js" id="asciicast-255965" async data-cols="100" data-rows="12" data-autoplay="true"></script>
+
+This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of shellspec. Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
+
+### 7. And what you need
 
 Besides, shellspec has the necessary features for unit testing.
 
@@ -241,7 +270,7 @@ Besides, shellspec has the necessary features for unit testing.
 * `Pending` to indicate the to be implementation.
 * `Data` helper that easy to input from stdin.
 * `%text` directive that easier to use than heredoc at indented code.
-* `%=` (`%putsn`) directive that can be used in place of non-portable `echo`.
+* `%puts` (`%=`) / `%putsn` (`%=`) directive that can be used in place of non-portable `echo`.
 * Built-in simple task runner
 
 shellspec is designed with an extensible architecture, so you can create
