@@ -215,6 +215,8 @@ End
 If failed your tests, display error with the line number. You can re-run the
 failed tests with the line number.
 
+<script src="https://asciinema.org/a/256058.js" id="asciicast-256058" async data-cols="100" data-rows="24"></script>
+
 If you want to run specific test only, you can use `--focus` option to run
 focused tests. (To focus, prepend 'f' to groups / examples in specfiles.
 e.g. `Describe` -> `fDescribe`, `It` -> `fIt`, etc.)
