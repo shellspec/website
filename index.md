@@ -264,12 +264,12 @@ shellspec has modern reporting. When a spec fails, it can be reported in various
 
 ### 5. Coverage
 
-shellspec integrated with `kcov` for easy to coverage.
+shellspec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html for easy to coverage.
 
 <script src="https://asciinema.org/a/255965.js" id="asciicast-255965" async data-cols="100" data-rows="12" data-autoplay="true"></script>
 
 This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of shellspec.
-Also, `kcov` can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
+Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
 
 ### 6. And what you need
 
