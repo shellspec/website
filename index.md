@@ -56,7 +56,7 @@ End
 
 ## Why use shellspec?
 
-### 1. Comparison with other unit testing frameworks.
+### 1. Comparison list with other unit testing frameworks.
 
 |                        | shellspec      | shunit2        | bats-core             |
 | ---------------------- | -------------- | -------------- | --------------------- |
@@ -189,9 +189,13 @@ Describe 'Adding'
 End
 ```
 
-### 2. Easy to mock / stub
+### 2. Support nested block structure
 
-The block structure allows for intuitive and easy-to-understand mock /stub.
+shellspec supports nested block structure. It realize local variables and
+functions that can only be used within a block.
+
+This block structure also allows for simple and intuitive and
+easy-to-understand mock / stub.
 
 ```sh
 Describe 'mock / stub sample'
@@ -210,10 +214,12 @@ Describe 'mock / stub sample'
 End
 ```
 
-### 3. Fast testing
+### 3. Fast testing and high portability
 
-If failed your tests, display error with the line number. You can re-run the
-failed tests with the line number.
+"Fast" has two meanings. Testing cycles is fast, Execution speed is fast.
+
+If failed your tests, display error with the line number.
+You can re-run the failed tests with the line number.
 
 <script src="https://asciinema.org/a/256058.js" id="asciicast-256058" async data-cols="100" data-rows="24"></script>
 
@@ -224,19 +230,21 @@ e.g. `Describe` -> `fDescribe`, `It` -> `fIt`, etc.)
 If you want to temporarily skip some tests, prepend 'x' to groups / examples in
 specfiles (like `xDescribe`, `xIt`, etc.)
 
-And more, using parallel execution may increase speed running tests depending on
-your tests and the testing hardware. (but in my opinion it's fast enough without
-parallel execution.)
+Those features provide fast testing cycles.
 
-Those feature are implemented only by shell script, so you can use it all shells.
-(Do not requires [$LINENO](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_05_03) variable and [GNU parallel](https://www.gnu.org/software/parallel/))
+And more, shellspec implements parallel execution. It may increase speed running
+tests depending on your tests and the testing hardware.
+
+For those who care about the order of test execution,
+It is also possible to run in random order.
+
+Those features are available in all POSIX compliant shells.
+Implemented by using shell script and few basic POSIX compliant command only. (really!)
+Because there are few external command calls, It is fast and portable.
 
 ### 4. Modern reporting
 
-shellspec has modern reporting similar like rspec. When specs fails, it reports
-expected and actual with line number and colored.
-
-shellspec has three reporting formatter, `progress`, `documentation`, `tap`, `junit`.
+shellspec has modern reporting. When a spec fails, it can be reported in various formats.
 
 #### progress formatter (default)
 
@@ -254,43 +262,21 @@ shellspec has three reporting formatter, `progress`, `documentation`, `tap`, `ju
 
 <script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
 
-### 5. Implements by pure POSIX compliant shell scripts
+### 5. Coverage
 
-shellspec is implements by 100% pure POSIX compliant shell scripts.
-The required external commands are basic few POSIX compliant commands only.
-
-Not only bash, it supports dash, zsh, ksh, yash, posh and busybox ash. shellspec
-is written by POSIX compatible syntax, but you can use extended syntax of bash, etc.
-
-It works on Linux (e.g Debian, Alpine Linux on Docker, OpenWrt), macOS,
-Unix (e.g. Solaris) and Windows Subsystem for Linux. Works in more environments.
-
-### 6. The specfile is compatible with shell script syntax
-
-The specfile looks like natural language, but also compatible with shell script
-syntax. therefore you can mixing shell script code in specfile and also checking
-syntax using by `sh -n`, `shellcheck` and so on.
-
-The specfile is valid shell script syntax, but it extended. It supports nestable
-block, scope and temporary function redefinition for mock/stub.
-
-Those features is realized by code translation. The block of DSL translate to
-subshell, it executes in own environment. This achieves isolation of tests.
-
-### 7. Coverage
-
-shellspec integrated with kcov for easy to coverage.
+shellspec integrated with `kcov` for easy to coverage.
 
 <script src="https://asciinema.org/a/255965.js" id="asciicast-255965" async data-cols="100" data-rows="12" data-autoplay="true"></script>
 
-This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of shellspec. Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
+This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of shellspec.
+Also, `kcov` can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
 
-### 8. And what you need
+### 6. And what you need
 
 Besides, shellspec has the necessary features for unit testing.
 
 * `Before` / `After` hooks for preparation and cleaning up.
-* `Pending` to indicate the to be implementation.
+* `Skip` to skip example / `Pending` to indicate the to be implementation.
 * `Data` helper that easy to input from stdin.
 * `%text` directive that easier to use than heredoc at indented code.
 * `%puts` (`%=`) / `%putsn` (`%=`) directive that can be used in place of non-portable `echo`.
