@@ -215,25 +215,21 @@ expected and actual with line number and colored.
 
 shellspec has three reporting formatter, `progress`, `documentation`, `tap`, `junit`.
 
-<details>
-<summary>progress formatter (default)</summary>
+#### progress formatter (default)
+
 <script src="https://asciinema.org/a/255960.js" id="asciicast-255960" async data-cols="100" data-rows="24" data-autoplay="true"></script>
-</details>
 
-<details>
-<summary>documentation formatter</summary>
+#### documentation formatter
+
 <script src="https://asciinema.org/a/255961.js" id="asciicast-255961" async data-cols="100" data-rows="37" data-autoplay="true"></script>
-</details>
 
-<details>
-<summary>TAP formatter</summary>
+#### TAP formatter
+
 <script src="https://asciinema.org/a/255962.js" id="asciicast-255962" async data-cols="100" data-rows="12" data-autoplay="true"></script>
-</details>
 
-<details>
-<summary>JUnit XML formatter</summary>
+#### JUnit XML formatter
+
 <script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
-</details>
 
 ### 4. Implements by pure POSIX compliant shell scripts
 
