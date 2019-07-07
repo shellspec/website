@@ -62,7 +62,7 @@ End
 | ---------------------- | -------------- | -------------- | --------------------- |
 | Supported shells       | POSIX shell    | POSIX shell    | bash only             |
 | Framework style        | BDD            | xUnit          | original              |
-| Spec/test syntax       | shell script   | shell script   | original              |
+| Spec / test syntax     | shell script   | shell script   | original              |
 | Nested block           | support        | -              | -                     |
 | Skip / Pending         | both           | skip only      | skip only             |
 | Mock / Stub            | built-in       | -              | -                     |
@@ -189,7 +189,28 @@ Describe 'Adding'
 End
 ```
 
-### 2. Fast testing
+### 2. Easy to mock / stub
+
+The block structure allows for intuitive and easy-to-understand mock /stub.
+
+```sh
+Describe 'mock / stub sample'
+  unixtime() { date +%s; }
+
+  Example 'The date command has been redefined'
+    date() { echo 1546268400; }
+    When call unixtime
+    The output should eq 1546268400
+  End
+
+  Example 'The date command has not been redefined'
+    When call unixtime
+    The output should not eq 1546268400
+  End
+End
+```
+
+### 3. Fast testing
 
 If failed your tests, display error with the line number. You can re-run the
 failed tests with the line number.
@@ -208,7 +229,7 @@ parallel execution.)
 Those feature are implemented only by shell script, so you can use it all shells.
 (Do not requires [$LINENO](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_05_03) variable and [GNU parallel](https://www.gnu.org/software/parallel/))
 
-### 3. Modern reporting
+### 4. Modern reporting
 
 shellspec has modern reporting similar like rspec. When specs fails, it reports
 expected and actual with line number and colored.
@@ -231,7 +252,7 @@ shellspec has three reporting formatter, `progress`, `documentation`, `tap`, `ju
 
 <script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
 
-### 4. Implements by pure POSIX compliant shell scripts
+### 5. Implements by pure POSIX compliant shell scripts
 
 shellspec is implements by 100% pure POSIX compliant shell scripts.
 The required external commands are basic few POSIX compliant commands only.
@@ -242,7 +263,7 @@ is written by POSIX compatible syntax, but you can use extended syntax of bash, 
 It works on Linux (e.g Debian, Alpine Linux on Docker, OpenWrt), macOS,
 Unix (e.g. Solaris) and Windows Subsystem for Linux. Works in more environments.
 
-### 5. The specfile is compatible with shell script syntax
+### 6. The specfile is compatible with shell script syntax
 
 The specfile looks like natural language, but also compatible with shell script
 syntax. therefore you can mixing shell script code in specfile and also checking
@@ -254,7 +275,7 @@ block, scope and temporary function redefinition for mock/stub.
 Those features is realized by code translation. The block of DSL translate to
 subshell, it executes in own environment. This achieves isolation of tests.
 
-### 6. Coverage
+### 7. Coverage
 
 shellspec integrated with kcov for easy to coverage.
 
@@ -262,7 +283,7 @@ shellspec integrated with kcov for easy to coverage.
 
 This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of shellspec. Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
 
-### 7. And what you need
+### 8. And what you need
 
 Besides, shellspec has the necessary features for unit testing.
 
