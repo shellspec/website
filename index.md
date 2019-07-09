@@ -72,6 +72,7 @@ End
 | TAP formatter          | built-in       | -              | built-in              |
 | JUnit XML formatter    | built-in       | -              | -                     |
 | Coverage               | integration    | manual         | manual                |
+| Profiler               | support        | -              | -                     |
 
 ### 2. It's a BDD style
 
