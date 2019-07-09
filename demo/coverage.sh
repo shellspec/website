@@ -12,4 +12,4 @@ ghostplay_cleanup_handler() {
 }
 #ghostplay end
 
-shellspec --kcov
+shellspec --kcov --profile

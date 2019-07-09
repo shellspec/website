@@ -13,19 +13,15 @@ title: shellspec
 ## Features
 
 * Support POSIX compliant shell (dash, bash, ksh, busybox, etc...)
-* BDD style specfile syntax
-* The specfile is compatible with shell script syntax
-* Implemented by shell script
-* Minimal dependencies (use only a few basic POSIX compliant command)
+* Specfile is BDD style syntax with shell scripts compatible
+* Implemented by shell script with Minimal dependencies (use only a few basic POSIX compliant command)
 * Nestable block with scope like lexical scope
-* Mocking and stubbing (temporary function override)
-* Parallel execution, random ordering execution
-* Filtering (line number, id, focus, tag and example name)
-* The hook before and after of the examples
-* Skip and pending of the examples
-* Useful and portability standard input / output directive for testing
-* Modern reporting (colorize, failure line number)
-* Coverage ([kcov](http://simonkagstrom.github.io/kcov/index.html) integration, requires kcov and bash)
+* Mocking and stubbing in the scope (temporary function override)
+* The before/after hook and the skip/pending of the examples
+* Execution filtering (line number, id, focus, tag and example name)
+* Parallel execution, random ordering execution, dry-run executions
+* Modern reporting (colorize, line number, progress/documentation/TAP/JUnit formatter)
+* Coverage ([kcov](http://simonkagstrom.github.io/kcov/index.html) integration) and Profiler
 * Built-in simple task runner
 * Extensible architecture (custom matcher, custom formatter, etc...)
 * shellspec is tested by shellspec
@@ -262,11 +258,11 @@ shellspec has modern reporting. When a spec fails, it can be reported in various
 
 <script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
 
-### 5. Coverage
+### 5. Coverage and profiler
 
 shellspec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html for easy to coverage.
 
-<script src="https://asciinema.org/a/255965.js" id="asciicast-255965" async data-cols="100" data-rows="12" data-autoplay="true"></script>
+<script src="https://asciinema.org/a/256357.js" id="asciicast-256357" async data-cols="100" data-rows="12" data-autoplay="true"></script>
 
 This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of shellspec.
 Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
