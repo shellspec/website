@@ -262,7 +262,7 @@ shellspec has modern reporting. When a spec fails, it can be reported in various
 
 ### 5. Coverage and profiler
 
-shellspec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html for easy to coverage.
+shellspec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html) for easy to coverage.
 
 <script src="https://asciinema.org/a/256357.js" id="asciicast-256357" async data-cols="100" data-rows="17" data-autoplay="true"></script>
 
