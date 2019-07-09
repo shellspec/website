@@ -8,7 +8,9 @@ title: shellspec
 
 ## Get started!
 
+<div style="height: 30em">
 <script src="https://asciinema.org/a/255964.js" id="asciicast-255964" async data-autoplay="true" data-cols="100" data-rows="25"></script>
+</div>
 
 ## Features
 
