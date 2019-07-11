@@ -6,7 +6,7 @@ title: shellspec
 
 [shellspec](https://github.com/shellspec/shellspec) is a BDD style unit testing framework for POSIX compliant shell script
 
-**Get started!**
+## Get started!
 
 <div style="height: 32em">
 <script src="https://asciinema.org/a/256723.js" id="asciicast-256723" async data-autoplay="true" data-cols="100" data-rows="25"></script>
@@ -14,6 +14,7 @@ title: shellspec
 
 ## Table of Contents
 
+- [Get started!](#Get-started)
 - [Table of Contents](#Table-of-Contents)
 - [Why use shellspec?](#Why-use-shellspec)
   - [1. Comparison list with other unit testing frameworks.](#1-Comparison-list-with-other-unit-testing-frameworks)
