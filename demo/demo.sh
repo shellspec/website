@@ -2,6 +2,7 @@
 
 #ghostplay silent
 # asciinema rec -c "ghostplay demo/demo.sh"
+#curl -fsSL https://git.io/shellspec | sh -s -- --yes
 SCRIPT_DIR=$(cd "$(dirname "${GP_SOURCE:-$0}")"; pwd)
 cd "$SCRIPT_DIR"
 ghostplay_cleanup_handler() {
@@ -9,8 +10,16 @@ ghostplay_cleanup_handler() {
   if [ -d hello ]; then
     rm -rf hello
   fi
+  if [ -d "$HOME/opt/shellspec" ]; then
+    rm -rf "$HOME/opt/shellspec"
+  fi
 }
 #ghostplay end
+
+# Install shellspec
+curl -fsSL https://git.io/shellspec | sh -s -- --yes
+
+#ghostplay sleep 3
 
 # Create your project directory
 mkdir hello

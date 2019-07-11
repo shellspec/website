@@ -6,51 +6,32 @@ title: shellspec
 
 [shellspec](https://github.com/shellspec/shellspec) is a BDD style unit testing framework for POSIX compliant shell script
 
-## Get started!
+**Get started!**
 
-<div style="height: 30em">
-<script src="https://asciinema.org/a/255964.js" id="asciicast-255964" async data-autoplay="true" data-cols="100" data-rows="25"></script>
+<div style="height: 32em">
+<script src="https://asciinema.org/a/256723.js" id="asciicast-256723" async data-autoplay="true" data-cols="100" data-rows="25"></script>
 </div>
 
-## Features
+## Table of Contents
 
-* Support POSIX compliant shell (dash, bash, ksh, busybox, etc...)
-* Specfile is BDD style syntax with shell scripts compatible
-* Implemented by shell script with Minimal dependencies (use only a few basic POSIX compliant command)
-* Nestable block with scope like lexical scope
-* Mocking and stubbing in the scope (temporary function override)
-* The before/after hook and the skip/pending of the examples
-* Execution filtering (line number, id, focus, tag and example name)
-* Parallel execution, random ordering execution, dry-run executions
-* Modern reporting (colorize, line number, progress/documentation/TAP/JUnit formatter)
-* Coverage ([kcov](http://simonkagstrom.github.io/kcov/index.html) integration) and Profiler
-* Built-in simple task runner
-* Extensible architecture (custom matcher, custom formatter, etc...)
-* shellspec is tested by shellspec
+- [Table of Contents](#Table-of-Contents)
+- [Why use shellspec?](#Why-use-shellspec)
+  - [1. Comparison list with other unit testing frameworks.](#1-Comparison-list-with-other-unit-testing-frameworks)
+  - [2. It's a BDD style](#2-Its-a-BDD-style)
+    - [Specfile syntax](#Specfile-syntax)
+    - [Comparison with Bats](#Comparison-with-Bats)
+    - [Comparison with shunit2](#Comparison-with-shunit2)
+  - [2. Support nested block structure](#2-Support-nested-block-structure)
+    - [Easy to mock / stub](#Easy-to-mock--stub)
+  - [3. Fast testing and high portability](#3-Fast-testing-and-high-portability)
+  - [4. Modern reporting](#4-Modern-reporting)
+    - [progress formatter (default)](#progress-formatter-default)
+    - [documentation formatter](#documentation-formatter)
+    - [TAP formatter](#TAP-formatter)
+    - [JUnit XML formatter](#JUnit-XML-formatter)
+  - [5. Coverage and profiler](#5-Coverage-and-profiler)
+  - [6. And what you need](#6-And-what-you-need)
 
-## Specfile syntax
-
-```sh
-Describe 'sample' # Example group
-  Describe 'bc command'
-    add() { echo "$1 + $2" | bc; }
-
-    It 'performs addition' # Example
-      When call add 2 3 # Evaluation
-      The output should eq 5  # Expectation
-    End
-  End
-
-  Describe 'implemented by shell function'
-    Include ./mylib.sh # add() function defined
-
-    It 'performs addition'
-      When call add 2 3
-      The output should eq 5
-    End
-  End
-End
-```
 
 ## Why use shellspec?
 
@@ -81,6 +62,30 @@ DSL that nearly to natural language. And also those DSL are structured and execu
 
 shellspec is created inspired by rspec, and it has a DSL suitable for shell scripts.
 And it's a readability even if you are not familiar with shell scripts syntax.
+
+#### Specfile syntax
+
+```sh
+Describe 'sample' # Example group
+  Describe 'bc command'
+    add() { echo "$1 + $2" | bc; }
+
+    It 'performs addition' # Example
+      When call add 2 3 # Evaluation
+      The output should eq 5  # Expectation
+    End
+  End
+
+  Describe 'implemented by shell function'
+    Include ./mylib.sh # add() function defined
+
+    It 'performs addition'
+      When call add 2 3
+      The output should eq 5
+    End
+  End
+End
+```
 
 #### Comparison with Bats
 
@@ -192,6 +197,8 @@ End
 
 shellspec supports nested block structure. It realize local variables and
 functions that can only be used within a block.
+
+#### Easy to mock / stub
 
 This block structure also allows for simple and intuitive and
 easy-to-understand mock / stub.
