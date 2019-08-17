@@ -23,17 +23,17 @@ title: shellspec
     - [Specfile syntax](#specfile-syntax)
     - [Comparison with Bats](#comparison-with-bats)
     - [Comparison with shunit2](#comparison-with-shunit2)
-  - [2. Support nestable block with scope](#2-support-nestable-block-with-scope)
+  - [3. Support nestable block with scope](#3-support-nestable-block-with-scope)
     - [Easy to mock / stub](#easy-to-mock--stub)
-  - [3. Parameterized tests](#3-parameterized-tests)
-  - [4. Fast testing and high portability](#4-fast-testing-and-high-portability)
-  - [5. Modern reporting](#5-modern-reporting)
+  - [4. Parameterized tests](#4-parameterized-tests)
+  - [5. Fast testing and high portability](#5-fast-testing-and-high-portability)
+  - [6. Modern reporting](#6-modern-reporting)
     - [progress formatter (default)](#progress-formatter-default)
     - [documentation formatter](#documentation-formatter)
     - [TAP formatter](#tap-formatter)
     - [JUnit XML formatter](#junit-xml-formatter)
-  - [6. Coverage and profiler](#6-coverage-and-profiler)
-  - [6. And what you need](#6-and-what-you-need)
+  - [7. Coverage and profiler](#7-coverage-and-profiler)
+  - [8. And what you need](#8-and-what-you-need)
 
 ## Introduction
 
@@ -204,7 +204,7 @@ Describe 'Adding'
 End
 ```
 
-### 2. Support nestable block with scope
+### 3. Support nestable block with scope
 
 shellspec supports nested block structure. It realize local variables and
 functions that can only be used within a block.
@@ -231,7 +231,7 @@ Describe 'mock / stub sample'
 End
 ```
 
-### 3. Parameterized tests
+### 4. Parameterized tests
 
 Supported parameterized tests to perform a test with only the parameters changed.
 Also supported parameters by matrix definitions and dynamic parameters by code.
@@ -250,7 +250,7 @@ Describe 'example'
 End
 ```
 
-### 4. Fast testing and high portability
+### 5. Fast testing and high portability
 
 "Fast" has two meanings. Testing cycles is fast, Execution speed is fast.
 
@@ -278,7 +278,7 @@ Those features are available in all POSIX compliant shells.
 Implemented by using shell script and few basic POSIX compliant command only. (really!)
 Because there are few external command calls, It is fast and portable.
 
-### 5. Modern reporting
+### 6. Modern reporting
 
 shellspec has modern reporting. When a spec fails, it can be reported in various formats.
 
@@ -298,7 +298,7 @@ shellspec has modern reporting. When a spec fails, it can be reported in various
 
 <script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
 
-### 6. Coverage and profiler
+### 7. Coverage and profiler
 
 shellspec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html) for easy to coverage.
 
@@ -307,7 +307,7 @@ shellspec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html)
 This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of shellspec.
 Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
 
-### 6. And what you need
+### 8. And what you need
 
 Besides, shellspec has the necessary features for unit testing.
 
