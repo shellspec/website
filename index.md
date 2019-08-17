@@ -14,47 +14,57 @@ title: shellspec
 
 ## Table of Contents
 
-- [Get started!](#Get-started)
-- [Table of Contents](#Table-of-Contents)
-- [Why use shellspec?](#Why-use-shellspec)
-  - [1. Comparison list with other unit testing frameworks.](#1-Comparison-list-with-other-unit-testing-frameworks)
-  - [2. It's a BDD style](#2-Its-a-BDD-style)
-    - [Specfile syntax](#Specfile-syntax)
-    - [Comparison with Bats](#Comparison-with-Bats)
-    - [Comparison with shunit2](#Comparison-with-shunit2)
-  - [2. Support nested block structure](#2-Support-nested-block-structure)
-    - [Easy to mock / stub](#Easy-to-mock--stub)
-  - [3. Fast testing and high portability](#3-Fast-testing-and-high-portability)
-  - [4. Modern reporting](#4-Modern-reporting)
+- [Get started!](#get-started)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Why use shellspec?](#why-use-shellspec)
+  - [1. Comparison list with other unit testing frameworks.](#1-comparison-list-with-other-unit-testing-frameworks)
+  - [2. It's a BDD style](#2-its-a-bdd-style)
+    - [Specfile syntax](#specfile-syntax)
+    - [Comparison with Bats](#comparison-with-bats)
+    - [Comparison with shunit2](#comparison-with-shunit2)
+  - [2. Support nestable block with scope](#2-support-nestable-block-with-scope)
+    - [Easy to mock / stub](#easy-to-mock--stub)
+  - [3. Parameterized tests](#3-parameterized-tests)
+  - [4. Fast testing and high portability](#4-fast-testing-and-high-portability)
+  - [5. Modern reporting](#5-modern-reporting)
     - [progress formatter (default)](#progress-formatter-default)
     - [documentation formatter](#documentation-formatter)
-    - [TAP formatter](#TAP-formatter)
-    - [JUnit XML formatter](#JUnit-XML-formatter)
-  - [5. Coverage and profiler](#5-Coverage-and-profiler)
-  - [6. And what you need](#6-And-what-you-need)
+    - [TAP formatter](#tap-formatter)
+    - [JUnit XML formatter](#junit-xml-formatter)
+  - [6. Coverage and profiler](#6-coverage-and-profiler)
+  - [6. And what you need](#6-and-what-you-need)
 
+## Introduction
+
+shellspec was developed as a cross-platform testing tool for develop
+POSIX-compliant shell scripts that work in many environments.
+Works not only PC but also in restricted environments like cloud and embedded OS.
+And provides first-class features equivalent to other language testing tools.
+Of course shellspec is tested by shellspec.
 
 ## Why use shellspec?
 
 ### 1. Comparison list with other unit testing frameworks.
 
-|                        | shellspec      | shunit2        | bats-core             |
-| ---------------------- | -------------- | -------------- | --------------------- |
-| Supported shells       | POSIX shell    | POSIX shell    | bash only             |
-| Framework style        | BDD            | xUnit          | original              |
-| Spec / test syntax     | shell script   | shell script   | original              |
-| Nested block           | support        | -              | -                     |
-| Skip / Pending         | both           | skip only      | skip only             |
-| Mock / Stub            | built-in       | -              | -                     |
-| Assertion line number  | all shells     | limited shells | bash only             |
-| Parallel execution     | native support | -              | requires GNU parallel |
-| Random execution       | native support | -              | -                     |
-| Execute by name        | support        | support        | support               |
-| Execute by line number | support        | -              | -                     |
-| TAP formatter          | built-in       | -              | built-in              |
-| JUnit XML formatter    | built-in       | -              | -                     |
-| Coverage               | integration    | manual         | manual                |
-| Profiler               | support        | -              | -                     |
+|                           | shellspec               | shunit2                   | bats / bats-core                |
+| ------------------------- | ----------------------- | ------------------------- | ------------------------------- |
+| Supported shells          | POSIX shell             | Bourne shell, POSIX shell | bash                            |
+| Framework style           | BDD                     | xUnit                     | original                        |
+| Spec / test syntax        | shell script compatible | shell script              | original                        |
+| Nestable block with scope | support                 | -                         | -                               |
+| Skip / Pending / Focus    | support (all)           | support (skip only)       | support (skip only)             |
+| Mock / Stub               | support (built-in)      | -                         | - (extension exists)            |
+| Parameterized tests       | support                 | -                         | -                               |
+| Assertion line number     | support (all shells)    | support (limited shells)  | support (bash only)             |
+| Parallel execution        | support                 | -                         | support (requires GNU parallel) |
+| Random execution          | support                 | -                         | -                               |
+| Filtering by name         | support                 | support                   | support                         |
+| Filtering by line number  | support                 | -                         | -                               |
+| TAP formatter             | support                 | -                         | support                         |
+| JUnit XML formatter       | support                 | -                         | -                               |
+| Coverage                  | support (requires kcov) | -                         | -                               |
+| Profiler                  | support                 | -                         | -                               |
 
 ### 2. It's a BDD style
 
@@ -194,7 +204,7 @@ Describe 'Adding'
 End
 ```
 
-### 2. Support nested block structure
+### 2. Support nestable block with scope
 
 shellspec supports nested block structure. It realize local variables and
 functions that can only be used within a block.
@@ -221,7 +231,26 @@ Describe 'mock / stub sample'
 End
 ```
 
-### 3. Fast testing and high portability
+### 3. Parameterized tests
+
+Supported parameterized tests to perform a test with only the parameters changed.
+Also supported parameters by matrix definitions and dynamic parameters by code.
+
+```
+Describe 'example'
+  Parameters
+    "#1" 1 2 3
+    "#2" 1 2 3
+  End
+
+  Example "example $1"
+    When call echo "$(($2 + $3))"
+    The output should eq "$4"
+  End
+End
+```
+
+### 4. Fast testing and high portability
 
 "Fast" has two meanings. Testing cycles is fast, Execution speed is fast.
 
@@ -249,7 +278,7 @@ Those features are available in all POSIX compliant shells.
 Implemented by using shell script and few basic POSIX compliant command only. (really!)
 Because there are few external command calls, It is fast and portable.
 
-### 4. Modern reporting
+### 5. Modern reporting
 
 shellspec has modern reporting. When a spec fails, it can be reported in various formats.
 
@@ -269,7 +298,7 @@ shellspec has modern reporting. When a spec fails, it can be reported in various
 
 <script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
 
-### 5. Coverage and profiler
+### 6. Coverage and profiler
 
 shellspec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html) for easy to coverage.
 
