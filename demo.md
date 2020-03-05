@@ -3,8 +3,6 @@ layout: demo
 title: shellspec demo
 ---
 
-# DEMO
-
 Run the following command.
 
 ```sh
