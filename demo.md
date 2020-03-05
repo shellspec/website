@@ -18,7 +18,7 @@ shellspec
 
 <iframe height="600px" width="100%" src="https://repl.it/@ko1nksm/shellspec-demo?lite=true&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-Do you want to see the code in a browser? [Open in Repl.it](https://repl.it/@ko1nksm/shellspec-demo).
+Do you want to see or edit the code in a browser? [Open in Repl.it](https://repl.it/@ko1nksm/shellspec-demo).
 ```
 $ tree
 .
@@ -30,8 +30,6 @@ $ tree
     |-- array_spec.sh
     |-- system_spec.sh
     `-- spec_helper.sh
-
-2 directories, 8 files
 ```
 
 
