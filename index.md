@@ -59,6 +59,7 @@ Of course shellspec is tested by shellspec.
 | Mock / Stub               | support (built-in)      | -                         | - (extension exists)            |
 | Parameterized tests       | support                 | -                         | -                               |
 | Assertion line number     | support (all shells)    | support (limited shells)  | support (bash only)             |
+| Quick execution           | support                 | -                         | -                               |
 | Parallel execution        | support                 | -                         | support (requires GNU parallel) |
 | Random execution          | support                 | -                         | -                               |
 | Filtering by name         | support                 | support                   | support                         |
@@ -67,6 +68,11 @@ Of course shellspec is tested by shellspec.
 | JUnit XML formatter       | support                 | -                         | -                               |
 | Coverage                  | support (requires kcov) | -                         | -                               |
 | Profiler                  | support                 | -                         | -                               |
+| Cyclomatic Complexity     | [shellmetrics][]        | -                         | -                               |
+
+- Quick execution: Run only non-passed examples the last time they ran
+
+[shellmetrics]:https://github.com/shellspec/shellmetrics
 
 ### 2. It's a BDD style
 
