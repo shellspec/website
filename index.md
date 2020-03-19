@@ -1,10 +1,10 @@
 ---
 layout: default
-title: shellspec
+title: ShellSpec
 ---
 # Let's test the your shell script!
 
-[shellspec](https://github.com/shellspec/shellspec) is a BDD style unit testing framework for POSIX compliant shell script
+[ShellSpec](https://github.com/shellspec/shellspec) is a BDD style unit testing framework for POSIX compliant shell script
 
 ## Get started!
 
@@ -19,7 +19,7 @@ Try the **[Online Demo](demo)** on the browser.
 - [Get started!](#get-started)
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
-- [Why use shellspec?](#why-use-shellspec)
+- [Why use ShellSpec?](#why-use-shellspec)
   - [1. Comparison list with other unit testing frameworks.](#1-comparison-list-with-other-unit-testing-frameworks)
   - [2. It's a BDD style](#2-its-a-bdd-style)
     - [Specfile syntax](#specfile-syntax)
@@ -39,17 +39,17 @@ Try the **[Online Demo](demo)** on the browser.
 
 ## Introduction
 
-shellspec was developed as a cross-platform testing tool for develop
+ShellSpec was developed as a cross-platform testing tool for develop
 POSIX-compliant shell scripts that work in many environments.
 Works not only PC but also in restricted environments like cloud and embedded OS.
 And provides first-class features equivalent to other language testing tools.
-Of course shellspec is tested by shellspec.
+Of course ShellSpec is tested by ShellSpec.
 
-## Why use shellspec?
+## Why use ShellSpec?
 
 ### 1. Comparison list with other unit testing frameworks.
 
-|                           | shellspec               | shunit2                   | bats / bats-core                |
+|                           | ShellSpec               | shUnit2                   | Bats / Bats-core                |
 | ------------------------- | ----------------------- | ------------------------- | ------------------------------- |
 | Supported shells          | POSIX shell             | Bourne shell, POSIX shell | bash                            |
 | Framework style           | BDD                     | xUnit                     | original                        |
@@ -72,14 +72,14 @@ Of course shellspec is tested by shellspec.
 
 - Quick execution: Run only non-passed examples the last time they ran
 
-[shellmetrics]:https://github.com/shellspec/shellmetrics
+[ShellMetrics]:https://github.com/shellspec/shellmetrics
 
 ### 2. It's a BDD style
 
-shellspec is a BDD style unit testing framework. You can write specifications with
+ShellSpec is a BDD style unit testing framework. You can write specifications with
 DSL that nearly to natural language. And also those DSL are structured and executable.
 
-shellspec is created inspired by rspec, and it has a DSL suitable for shell scripts.
+ShellSpec is created inspired by RSpec, and it has a DSL suitable for shell scripts.
 And it's a readability even if you are not familiar with shell scripts syntax.
 
 #### Specfile syntax
@@ -111,10 +111,10 @@ End
 * [Bats: Bash Automated Testing System](https://github.com/sstephenson/bats)
 * [Bats-core: Bash Automated Testing System (2018)](https://github.com/bats-core/bats-core)
 
-shellspec is less syntax of shell scripts specific, and you can write
+ShellSpec is less syntax of shell scripts specific, and you can write
 specification in sentences nearly to natural language.
 
-**bats**
+**Bats**
 
 ```sh
 #!/usr/bin/env bats
@@ -130,7 +130,7 @@ specification in sentences nearly to natural language.
 }
 ```
 
-**shellspec**
+**ShellSpec**
 
 ```sh
 #shellcheck shell=sh
@@ -150,9 +150,9 @@ End
 
 [shUnit2 is a xUnit based unit test framework for Bourne based shell scripts.](https://github.com/kward/shunit2)
 
-shellspec has structured DSL and readability.
+ShellSpec has structured DSL and readability.
 
-**shunit2**
+**shUnit2**
 
 ```sh
 #! /bin/sh
@@ -182,7 +182,7 @@ oneTimeSetUp() {
 . ./shunit2
 ```
 
-**shellspec**
+**ShellSpec**
 
 ```sh
 #shellcheck shell=sh
@@ -214,7 +214,7 @@ End
 
 ### 3. Support nestable block with scope
 
-shellspec supports nested block structure. It realize local variables and
+ShellSpec supports nested block structure. It realize local variables and
 functions that can only be used within a block.
 
 #### Easy to mock / stub
@@ -276,7 +276,7 @@ specfiles (like `xDescribe`, `xIt`, etc.)
 
 Those features provide fast testing cycles.
 
-And more, shellspec implements parallel execution. It may increase speed running
+And more, ShellSpec implements parallel execution. It may increase speed running
 tests depending on your tests and the testing hardware.
 
 For those who care about the order of test execution,
@@ -288,7 +288,7 @@ Because there are few external command calls, It is fast and portable.
 
 ### 6. Modern reporting
 
-shellspec has modern reporting. When a spec fails, it can be reported in various formats.
+ShellSpec has modern reporting. When a spec fails, it can be reported in various formats.
 
 #### progress formatter (default)
 
@@ -308,16 +308,16 @@ shellspec has modern reporting. When a spec fails, it can be reported in various
 
 ### 7. Coverage and profiler
 
-shellspec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html) for easy to coverage.
+ShellSpec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html) for easy to coverage.
 
 <script src="https://asciinema.org/a/256357.js" id="asciicast-256357" async data-cols="100" data-rows="17" data-autoplay="true"></script>
 
-This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of shellspec.
+This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of ShellSpec.
 Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
 
 ### 8. And what you need
 
-Besides, shellspec has the necessary features for unit testing.
+Besides, ShellSpec has the necessary features for unit testing.
 
 * `Before` / `After` hooks for preparation and cleaning up.
 * `Skip` to skip example / `Pending` to indicate the to be implementation.
@@ -326,7 +326,7 @@ Besides, shellspec has the necessary features for unit testing.
 * `%puts` (`%=`) / `%putsn` (`%=`) directive that can be used in place of non-portable `echo`.
 * Built-in simple task runner
 
-shellspec is designed with an extensible architecture, so you can create
+ShellSpec is designed with an extensible architecture, so you can create
 custom matcher, custom modifier and so on.
 
-shellspec is a powerful but simple to use. Let's enjoy test with [shellspec](https://github.com/shellspec/shellspec)!
+ShellSpec is a powerful but simple to use. Let's enjoy test with [shellspec](https://github.com/shellspec/shellspec)!

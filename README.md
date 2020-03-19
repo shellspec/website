@@ -1,3 +1,3 @@
-# shellspec-website
+# ShellSpec website
 
 This is website source code for [shellspec.info](https://shellspec.info)
