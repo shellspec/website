@@ -68,7 +68,7 @@ Of course ShellSpec is tested by ShellSpec.
 | JUnit XML formatter       | support                 | -                         | -                               |
 | Coverage                  | support (requires kcov) | -                         | -                               |
 | Profiler                  | support                 | -                         | -                               |
-| Cyclomatic Complexity     | [shellmetrics][]        | -                         | -                               |
+| Cyclomatic Complexity     | [ShellMetrics][]        | -                         | -                               |
 
 - Quick execution: Run only non-passed examples the last time they ran
 
