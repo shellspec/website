@@ -49,26 +49,27 @@ Of course ShellSpec is tested by ShellSpec.
 
 ### 1. Comparison list with other unit testing frameworks.
 
-|                           | ShellSpec               | shUnit2                   | Bats / Bats-core                |
-| ------------------------- | ----------------------- | ------------------------- | ------------------------------- |
-| Supported shells          | POSIX shell             | Bourne shell, POSIX shell | bash                            |
-| Framework style           | BDD                     | xUnit                     | original                        |
-| Spec / test syntax        | shell script compatible | shell script              | original                        |
-| Nestable block with scope | support                 | -                         | -                               |
-| Skip / Pending / Focus    | support (all)           | support (skip only)       | support (skip only)             |
-| Mock / Stub               | support (built-in)      | -                         | - (extension exists)            |
-| Parameterized tests       | support                 | -                         | -                               |
-| Assertion line number     | support (all shells)    | support (limited shells)  | support (bash only)             |
-| Quick execution           | support                 | -                         | -                               |
-| Parallel execution        | support                 | -                         | support (requires GNU parallel) |
-| Random execution          | support                 | -                         | -                               |
-| Filtering by name         | support                 | support                   | support                         |
-| Filtering by line number  | support                 | -                         | -                               |
-| TAP formatter             | support                 | -                         | support                         |
-| JUnit XML formatter       | support                 | -                         | -                               |
-| Coverage                  | support (requires kcov) | -                         | -                               |
-| Profiler                  | support                 | -                         | -                               |
-| Cyclomatic Complexity     | [ShellMetrics][]        | -                         | -                               |
+|                           | ShellSpec                     | shUnit2                   | Bats / Bats-core                |
+| ------------------------- | ----------------------------- | ------------------------- | ------------------------------- |
+| Supported shells          | all POSIX shell               | Bourne shell, POSIX shell | bash only                       |
+| Framework style           | BDD                           | xUnit                     | original                        |
+| Spec / test syntax        | DSL (shell script compatible) | shell script              | original (almost bash)          |
+| Nestable block with scope | support                       | -                         | -                               |
+| Before / After hooks      | support                       | support                   | support                         |
+| Skip / Pending / Focus    | support (all)                 | support (skip only)       | support (skip only)             |
+| Mock / Stub               | support (built-in)            | -                         | - (extension exists)            |
+| Parameterized tests       | support                       | -                         | -                               |
+| Assertion line number     | support (all shells)          | support (limited shells)  | support (bash only)             |
+| Quick execution           | support                       | -                         | -                               |
+| Parallel execution        | support                       | -                         | support (requires GNU parallel) |
+| Random execution          | support                       | -                         | -                               |
+| Filtering by name         | support                       | support                   | support                         |
+| Filtering by line number  | support                       | -                         | -                               |
+| TAP formatter             | support                       | -                         | support                         |
+| JUnit XML formatter       | support                       | -                         | -                               |
+| Coverage                  | support (requires kcov)       | -                         | -                               |
+| Profiler                  | support                       | -                         | -                               |
+| Cyclomatic Complexity     | [ShellMetrics][]              | -                         | -                               |
 
 - Quick execution: Run only non-passed examples the last time they ran
 
@@ -263,7 +264,8 @@ End
 "Fast" has two meanings. Testing cycles is fast, Execution speed is fast.
 
 If failed your tests, display error with the line number.
-You can re-run the failed tests with the line number.
+You can easily rerun only failed tests using Quick execution.
+You can also rerun using the line number or spec description.
 
 <script src="https://asciinema.org/a/256058.js" id="asciicast-256058" async data-cols="100" data-rows="24"></script>
 
@@ -314,6 +316,8 @@ ShellSpec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html)
 
 This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of ShellSpec.
 Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
+
+Note: Coverage support is bash, ksh, zsh only.
 
 ### 8. And what you need
 
