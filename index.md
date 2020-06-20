@@ -20,11 +20,16 @@ Try the **[Online Demo](demo)** on the browser.
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Why use ShellSpec?](#why-use-shellspec)
-  - [1. Comparison list with other unit testing frameworks.](#1-comparison-list-with-other-unit-testing-frameworks)
+  - [1. Comparison with other testing frameworks](#1-comparison-with-other-testing-frameworks)
+    - [Other comparison](#other-comparison)
   - [2. It's a BDD style](#2-its-a-bdd-style)
     - [Specfile syntax](#specfile-syntax)
-    - [Comparison with Bats](#comparison-with-bats)
+    - [Comparison with Bats-core](#comparison-with-bats-core)
+      - [Bats-core](#bats-core)
+      - [ShellSpec](#shellspec)
     - [Comparison with shunit2](#comparison-with-shunit2)
+      - [shUnit2](#shunit2)
+      - [ShellSpec](#shellspec-1)
   - [3. Support nestable block with scope](#3-support-nestable-block-with-scope)
     - [Easy to mock / stub](#easy-to-mock--stub)
   - [4. Parameterized tests](#4-parameterized-tests)
@@ -47,9 +52,9 @@ Of course ShellSpec is tested by ShellSpec.
 
 ## Why use ShellSpec?
 
-### 1. Comparison list with other unit testing frameworks.
+### 1. Comparison with other testing frameworks
 
-|                           | ShellSpec                     | shUnit2                   | Bats / Bats-core                |
+|                           | ShellSpec                     | shUnit2                   | Bats-core                       |
 | ------------------------- | ----------------------------- | ------------------------- | ------------------------------- |
 | Supported shells          | all POSIX shell               | Bourne shell, POSIX shell | bash only                       |
 | Framework style           | BDD                           | xUnit                     | original                        |
@@ -74,6 +79,10 @@ Of course ShellSpec is tested by ShellSpec.
 - Quick execution: Run only non-passed examples the last time they ran
 
 [ShellMetrics]:https://github.com/shellspec/shellmetrics
+
+#### Other comparison
+
+- [Bash test framework comparison 2020](https://github.com/dodie/testing-in-bash)
 
 ### 2. It's a BDD style
 
@@ -107,15 +116,14 @@ Describe 'sample' # Example group
 End
 ```
 
-#### Comparison with Bats
+#### Comparison with Bats-core
 
-* [Bats: Bash Automated Testing System](https://github.com/sstephenson/bats)
-* [Bats-core: Bash Automated Testing System (2018)](https://github.com/bats-core/bats-core)
+- [Bats-core: Bash Automated Testing System (2018)](https://github.com/bats-core/bats-core)
 
 ShellSpec is less syntax of shell scripts specific, and you can write
 specification in sentences nearly to natural language.
 
-**Bats**
+##### Bats-core
 
 ```sh
 #!/usr/bin/env bats
@@ -131,18 +139,20 @@ specification in sentences nearly to natural language.
 }
 ```
 
-**ShellSpec**
+##### ShellSpec
 
 ```sh
 #shellcheck shell=sh
 
 Example "addition using bc"
-  When call "echo 2+2 | bc"
+  Data "2+2"
+  When call bc
   The output should eq 4
 End
 
 Example "addition using dc"
-  When call "echo 2 2+p | dc"
+  Data "2 2+p"
+  When call dc
   The output should eq 4
 End
 ```
@@ -153,7 +163,7 @@ End
 
 ShellSpec has structured DSL and readability.
 
-**shUnit2**
+##### shUnit2
 
 ```sh
 #! /bin/sh
@@ -183,32 +193,24 @@ oneTimeSetUp() {
 . ./shunit2
 ```
 
-**ShellSpec**
+##### ShellSpec
 
 ```sh
 #shellcheck shell=sh
 
-Describe 'Adding'
-  Include ./math.inc
+Include ./math.inc
 
-  Describe 'generic'
-    Describe 'add_generic()'
-      It 'adds values'
-        When call add_generic 1 2
-        The output should eq 3
-      End
-    End
+Describe 'Adding'
+  It 'adds values'
+    When call add_generic 1 2
+    The output should eq 3
   End
 
-  Describe 'non-generic'
-    Skip if 'non-generic tests' [ -z "${BASH_VERSION:-}" ]
+  Skip if 'non-generic tests' [ -z "${BASH_VERSION:-}" ]
 
-    Describe 'add_bash()'
-      It 'adds values'
-        When call add_bash 1 2
-        The output should eq 3
-      End
-    End
+  It 'adds values'
+    When call add_bash 1 2
+    The output should eq 3
   End
 End
 ```
@@ -323,12 +325,12 @@ Note: Coverage support is bash, ksh, zsh only.
 
 Besides, ShellSpec has the necessary features for unit testing.
 
-* `Before` / `After` hooks for preparation and cleaning up.
-* `Skip` to skip example / `Pending` to indicate the to be implementation.
-* `Data` helper that easy to input from stdin.
-* `%text` directive that easier to use than heredoc at indented code.
-* `%puts` (`%=`) / `%putsn` (`%=`) directive that can be used in place of non-portable `echo`.
-* Built-in simple task runner
+- `Before`/`After` and `BeforeAll`/`AfterAll` hooks for preparation and cleaning up.
+- `Skip` to skip example / `Pending` to indicate the to be implementation.
+- `Data` helper that easy to input from stdin.
+- `%text` directive that easier to use than heredoc at indented code.
+- `%puts` (`%=`) / `%putsn` (`%=`) directive that can be used in place of non-portable `echo`.
+- Built-in simple task runner
 
 ShellSpec is designed with an extensible architecture, so you can create
 custom matcher, custom modifier and so on.
