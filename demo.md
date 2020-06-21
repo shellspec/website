@@ -7,13 +7,14 @@ title: ShellSpec demo
 
 ```sh
 # Step 1. Install ShellSpec
-
 . setup.sh
 
-# Step 2. Run ShellSpec
-
+# Step 2. Run Sample tests
 shellspec
 
+# Step 3. Run ShellSpec tests
+cd ~/.local/lib/shellspec/
+shellspec
 ```
 
 <iframe height="720px" width="100%" src="https://repl.it/@ko1nksm/shellspec-demo?lite=true&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
