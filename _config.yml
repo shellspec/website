@@ -1,5 +1,5 @@
 title: ShellSpec
-description: Full featured BDD unit testing framework for shell scripts with coverage reporting. Supports bash, zsh, dash and all POSIX shells.
+description: Featureful BDD unit testing framework for shell scripts with coverage reporting. Supports bash, zsh, dash and all POSIX shells.
 theme: jekyll-theme-slate
 github:
   repository_url: https://github.com/shellspec/shellspec
