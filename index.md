@@ -12,8 +12,10 @@ Therefore, it works not only on PC but also in restricted environments such as a
 
 ## Get started!
 
-<div style="height: 30em; margin:0 auto">
+<div style="margin:0 auto">
+<div style="height: 30em">
 <script src="https://asciinema.org/a/256723.js" id="asciicast-256723" async data-autoplay="true" data-cols="100" data-rows="25"></script>
+</div>
 </div>
 
 Try the **[Online Demo](demo)** on the browser.
