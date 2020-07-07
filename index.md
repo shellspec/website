@@ -18,30 +18,16 @@ Therefore, it works not only on PC but also in restricted environments such as a
 
 Try the **[Online Demo](demo)** on the browser.
 
-## Table of Contents
+## Table of Contents <!-- omit in toc -->
 
 - [Get started!](#get-started)
-- [Table of Contents](#table-of-contents)
 - [Why use ShellSpec?](#why-use-shellspec)
   - [1. Comparison with other testing frameworks](#1-comparison-with-other-testing-frameworks)
-    - [Other comparison](#other-comparison)
   - [2. It's a BDD style](#2-its-a-bdd-style)
-    - [Specfile syntax](#specfile-syntax)
-    - [Comparison with Bats-core](#comparison-with-bats-core)
-      - [Bats-core](#bats-core)
-      - [ShellSpec](#shellspec)
-    - [Comparison with shunit2](#comparison-with-shunit2)
-      - [shUnit2](#shunit2)
-      - [ShellSpec](#shellspec-1)
   - [3. Support nestable block with scope](#3-support-nestable-block-with-scope)
-    - [Easy to mock / stub](#easy-to-mock--stub)
   - [4. Parameterized tests](#4-parameterized-tests)
   - [5. Fast testing and high portability](#5-fast-testing-and-high-portability)
   - [6. Modern reporting](#6-modern-reporting)
-    - [progress formatter (default)](#progress-formatter-default)
-    - [documentation formatter](#documentation-formatter)
-    - [TAP formatter](#tap-formatter)
-    - [JUnit XML formatter](#junit-xml-formatter)
   - [7. Coverage and profiler](#7-coverage-and-profiler)
   - [8. And what you need](#8-and-what-you-need)
 
@@ -75,7 +61,7 @@ Try the **[Online Demo](demo)** on the browser.
 
 [ShellMetrics]:https://github.com/shellspec/shellmetrics
 
-#### Other comparison
+#### Other comparison <!-- omit in toc -->
 
 - [Bash test framework comparison 2020](https://github.com/dodie/testing-in-bash)
 
@@ -87,7 +73,7 @@ DSL that nearly to natural language. And also those DSL are structured and execu
 ShellSpec is created inspired by RSpec, and it has a DSL suitable for shell scripts.
 And it's a readability even if you are not familiar with shell scripts syntax.
 
-#### Specfile syntax
+#### Specfile syntax <!-- omit in toc -->
 
 ```sh
 Describe 'sample' # Example group
@@ -111,14 +97,14 @@ Describe 'sample' # Example group
 End
 ```
 
-#### Comparison with Bats-core
+#### Comparison with Bats-core <!-- omit in toc -->
 
 - [Bats-core: Bash Automated Testing System (2018)](https://github.com/bats-core/bats-core)
 
 ShellSpec is less syntax of shell scripts specific, and you can write
 specification in sentences nearly to natural language.
 
-##### Bats-core
+##### Bats-core <!-- omit in toc -->
 
 ```sh
 #!/usr/bin/env bats
@@ -134,7 +120,7 @@ specification in sentences nearly to natural language.
 }
 ```
 
-##### ShellSpec
+##### ShellSpec <!-- omit in toc -->
 
 ```sh
 #shellcheck shell=sh
@@ -152,13 +138,13 @@ Example "addition using dc"
 End
 ```
 
-#### Comparison with shunit2
+#### Comparison with shunit2 <!-- omit in toc -->
 
 [shUnit2 is a xUnit based unit test framework for Bourne based shell scripts.](https://github.com/kward/shunit2)
 
 ShellSpec has structured DSL and readability.
 
-##### shUnit2
+##### shUnit2 <!-- omit in toc -->
 
 ```sh
 #! /bin/sh
@@ -188,7 +174,7 @@ oneTimeSetUp() {
 . ./shunit2
 ```
 
-##### ShellSpec
+##### ShellSpec <!-- omit in toc -->
 
 ```sh
 #shellcheck shell=sh
@@ -215,7 +201,7 @@ End
 ShellSpec supports nested block structure. It realize local variables and
 functions that can only be used within a block.
 
-#### Easy to mock / stub
+#### Easy to mock / stub <!-- omit in toc -->
 
 This block structure also allows for simple and intuitive and
 easy-to-understand mock / stub.
@@ -289,19 +275,19 @@ Because there are few external command calls, It is fast and portable.
 
 ShellSpec has modern reporting. When a spec fails, it can be reported in various formats.
 
-#### progress formatter (default)
+#### progress formatter (default) <!-- omit in toc -->
 
 <script src="https://asciinema.org/a/255960.js" id="asciicast-255960" async data-cols="100" data-rows="24" data-autoplay="true"></script>
 
-#### documentation formatter
+#### documentation formatter <!-- omit in toc -->
 
 <script src="https://asciinema.org/a/255961.js" id="asciicast-255961" async data-cols="100" data-rows="37" data-autoplay="true"></script>
 
-#### TAP formatter
+#### TAP formatter <!-- omit in toc -->
 
 <script src="https://asciinema.org/a/255962.js" id="asciicast-255962" async data-cols="100" data-rows="12" data-autoplay="true"></script>
 
-#### JUnit XML formatter
+#### JUnit XML formatter <!-- omit in toc -->
 
 <script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
 
