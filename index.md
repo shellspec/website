@@ -13,7 +13,7 @@ Therefore, it works not only on PC but also in restricted environments such as a
 ## Get started!
 
 <div style="height: 30em;margin-left:30px">
-<script src="https://asciinema.org/a/256723.js" id="asciicast-256723" async data-autoplay="true" data-cols="100" data-rows="25"></script>
+<script src="https://asciinema.org/a/256723.js" id="asciicast-256723" async data-autoplay="true" data-cols="120" data-rows="25"></script>
 </div>
 
 Try the **[Online Demo](demo)** on the browser.
