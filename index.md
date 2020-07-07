@@ -4,7 +4,11 @@ title: ShellSpec
 ---
 # Let's test the your shell script!
 
-[ShellSpec](https://github.com/shellspec/shellspec) is a BDD style unit testing framework for POSIX compliant shell script
+[ShellSpec](https://github.com/shellspec/shellspec) is a BDD unit testing framework for dash, bash, ksh, zsh and **all POSIX shells** that
+**provides first-class features** such as [coverage report][coverage], parallel execution, parameterized testing and more.
+It was developed as a development / test tool for **developing cross-platform shell scripts and shell script libraries**.
+It has been implemented in POSIX compliant shell script and minimal dependencies.
+Therefore, it works not only on PC but also in restricted environments such as a minimal Docker image and embedded system.
 
 ## Get started!
 
@@ -18,7 +22,6 @@ Try the **[Online Demo](demo)** on the browser.
 
 - [Get started!](#get-started)
 - [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
 - [Why use ShellSpec?](#why-use-shellspec)
   - [1. Comparison with other testing frameworks](#1-comparison-with-other-testing-frameworks)
     - [Other comparison](#other-comparison)
@@ -41,14 +44,6 @@ Try the **[Online Demo](demo)** on the browser.
     - [JUnit XML formatter](#junit-xml-formatter)
   - [7. Coverage and profiler](#7-coverage-and-profiler)
   - [8. And what you need](#8-and-what-you-need)
-
-## Introduction
-
-ShellSpec was developed as a cross-platform testing tool for develop
-POSIX-compliant shell scripts that work in many environments.
-Works not only PC but also in restricted environments like cloud and embedded OS.
-And provides first-class features equivalent to other language testing tools.
-Of course ShellSpec is tested by ShellSpec.
 
 ## Why use ShellSpec?
 
@@ -316,8 +311,11 @@ ShellSpec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html)
 
 <script src="https://asciinema.org/a/256357.js" id="asciicast-256357" async data-cols="100" data-rows="17" data-autoplay="true"></script>
 
-This is [coverage report](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/root/shellspec/coverage/index.html) of ShellSpec.
-Also, kcov can be integrate with [Coveralls](https://coveralls.io/github/shellspec/shellspec), [Codecov](https://codecov.io/gh/shellspec/shellspec) and etc.
+This is [coverage report][coverage] of ShellSpec. Also, kcov can be integrate with [Coveralls][coveralls], [Codecov][codecov] and etc.
+
+[coverage]: https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/coverage/index.html
+[coveralls]: https://coveralls.io/github/shellspec/shellspec
+[codecov]: https://codecov.io/gh/shellspec/shellspec
 
 Note: Coverage support is bash, ksh, zsh only.
 
