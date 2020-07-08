@@ -4,11 +4,13 @@ title: ShellSpec
 ---
 # Let's test the your shell script!
 
-[ShellSpec](https://github.com/shellspec/shellspec) is a BDD unit testing framework for dash, bash, ksh, zsh and **all POSIX shells** that
+[ShellSpec][shellspec] is the most featureful BDD unit testing framework for dash, bash, ksh, zsh and **all POSIX shells** that
 **provides first-class features** such as [coverage report][coverage], parallel execution, parameterized testing and more.
 It was developed as a development / test tool for **developing cross-platform shell scripts and shell script libraries**.
 It has been implemented in POSIX compliant shell script and minimal dependencies.
 Therefore, it works not only on PC but also in restricted environments such as a minimal Docker image and embedded system.
+
+[shellspec]: https://github.com/shellspec/shellspec
 
 ## Get started!
 
