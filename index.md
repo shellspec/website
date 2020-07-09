@@ -4,15 +4,15 @@ title: ShellSpec
 ---
 # Let's test the your shell script!
 
-[ShellSpec][shellspec] is the most featureful BDD unit testing framework for dash, bash, ksh, zsh and **all POSIX shells** that
-**provides first-class features** such as [coverage report][coverage], parallel execution, parameterized testing and more.
-It was developed as a development / test tool for **developing cross-platform shell scripts and shell script libraries**.
-It has been implemented in POSIX compliant shell script and minimal dependencies.
-Therefore, it works not only on PC but also in restricted environments such as a minimal Docker image and embedded system.
+[ShellSpec][shellspec] is a full-featured BDD unit testing framework for dash, bash, ksh, zsh and **all POSIX shells** that
+**provides first-class features** such as [code coverage][coverage], parallel execution, parameterized testing and more.
+It was developed as a dev/test tool for **cross-platform shell scripts and shell script libraries**.
+Most of features are implemented with pure shell script and minimal POSIX-compliant commands,
+so they work also in restricted environments such as tiny Docker images and embedded systems.
 
 [shellspec]: https://github.com/shellspec/shellspec
 
-## Get started!
+## Get started! <!-- omit in toc -->
 
 <div style="height: 30em;margin-left:30px">
 <script src="https://asciinema.org/a/256723.js" id="asciicast-256723" async data-autoplay="true" data-cols="120" data-rows="25"></script>
@@ -22,7 +22,7 @@ Try the **[Online Demo](demo)** on the browser.
 
 ## Table of Contents <!-- omit in toc -->
 
-- [Get started!](#get-started)
+- [Impressive features](#impressive-features)
 - [Why use ShellSpec?](#why-use-shellspec)
   - [1. Comparison with other testing frameworks](#1-comparison-with-other-testing-frameworks)
   - [2. It's a BDD style](#2-its-a-bdd-style)
@@ -32,6 +32,27 @@ Try the **[Online Demo](demo)** on the browser.
   - [6. Modern reporting](#6-modern-reporting)
   - [7. Coverage and profiler](#7-coverage-and-profiler)
   - [8. And what you need](#8-and-what-you-need)
+
+## Impressive features
+
+- Works with **all POSIX compliant shells** (dash, bash, zsh, ksh, busybox, etc...)
+- Minimal dependencies (use only a few basic POSIX-compliant commands)
+- **BDD style specfile compatible with shell script syntax** (can embed shell script)
+- **Structured test using nestable blocks with scoped** (isolation between tests)
+- **Easy to mock and stub** in cooperation with scope
+- Easy to Skip/Pending of the examples
+- Before/After and BeforeAll/BeforeAll hooks
+- **Parameterized examples** for Data-Driven tests
+- **Execution filtering** by line number, id, focus, tag and example name
+- **Quick execution** to run examples that not-passed (or failed) the last time it ran
+- Execution with **trace output** for debugging
+- **Parallel execution**, random ordered execution and dry-run execution
+- Modern reporting (colorized, failed line number, progress / documentation / TAP / JUnit formatter)
+- **Code coverage** ([Kcov](http://simonkagstrom.github.io/kcov/index.html) integration) and Profiler
+- **Friendly with CI and provides Docker images** with ShellSpec pre-installed
+- Built-in project directory generator and simple task runner
+- Extensible architecture (custom assertion, custom matcher, etc...)
+- Subproject: [ShellMetrics](https://github.com/shellspec/shellmetrics) - Cyclomatic Complexity Analyzer for shell scripts
 
 ## Why use ShellSpec?
 
