@@ -17,8 +17,7 @@ Many people say that you should use a true programming language instead of shell
 
 You're probably working in a terminal using a shell such as bash or zsh rather than a programming language. Clearly, shell scripts are better suited for some problem. Shell scripts are the best choice for processing by cooperate with commands. It will be easier to use if there is a shell scripts that supports cooperate with commands. Please decide the tool to use according to the purpose. [It is wrong to decide the tool by the number of code lines](https://google.github.io/styleguide/shellguide.html#when-to-use-shell).
 
-It's true that development using shell scripts is difficult, but the reason is not the syntax. This is because there are not enough shell script libraries.
-It is similar to early JavaScript.
+It's true that development using shell scripts is difficult, but the reason is not the syntax. This is because there are not enough shell script libraries. It is similar to early JavaScript.
 
 A test framework is required to create a shell script library. ShellSpec solves the problem that shell scripts are difficult to test. And by increasing the number of shell script libraries facilitates development using shell scripts.
 
