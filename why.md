@@ -3,7 +3,7 @@ layout: default
 title: Why am I developing ShellSpec?
 ---
 
-# Why am I developing ShellSpec?
+# Why I created ShellSpec
 
 What I wanted is a dev/test tool for developing cross-platform shell scripts and shell script libraries. As a testing framework, I place importance on being able to write highly reliable tests with high readability. I also didn't want to compromise on features just because it was a shell script. The goal is a shell script version of [RSpec](https://rspec.info/).
 
