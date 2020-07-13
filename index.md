@@ -23,6 +23,7 @@ Try the **[Online Demo](demo)** on the browser.
 ## Table of Contents <!-- omit in toc -->
 
 - [Impressive features](#impressive-features)
+  - [Coverage reporting](#coverage-reporting)
 - [Why use ShellSpec?](#why-use-shellspec)
   - [1. Comparison with other testing frameworks](#1-comparison-with-other-testing-frameworks)
   - [2. It's a BDD style](#2-its-a-bdd-style)
@@ -52,7 +53,12 @@ Try the **[Online Demo](demo)** on the browser.
 - **Friendly with CI and provides Docker images** with ShellSpec pre-installed
 - Built-in project directory generator and simple task runner
 - Extensible architecture (custom assertion, custom matcher, etc...)
-- Subproject: [ShellMetrics](https://github.com/shellspec/shellmetrics) - Cyclomatic Complexity Analyzer for shell scripts
+- Subproject: [ShellMetrics](https://github.com/shellspec/shellmetrics) - Cyclomatic Complexity
+
+### Coverage reporting
+
+[![Coverage report](coverage.png)](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/coverage/index.html?branch=master)
+
 
 ## Why use ShellSpec?
 
