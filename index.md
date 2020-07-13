@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: index
 title: ShellSpec
 ---
 # Let's test the your shell script!

@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: default
 title: ShellSpec demo
 ---
 
