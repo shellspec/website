@@ -12,6 +12,8 @@ so they work also in restricted environments such as tiny Docker images and embe
 
 [shellspec]: https://github.com/shellspec/shellspec
 
+[Why I created ShellSpec](why)
+
 ## Get started! <!-- omit in toc -->
 
 <div style="height: 30em;margin-left:30px">
