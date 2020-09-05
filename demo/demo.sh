@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #ghostplay silent
-# asciinema rec -c "ghostplay demo/demo.sh"
+# asciinema rec -c "ghostplay demo.sh"
 #curl -fsSL https://git.io/shellspec | sh -s -- --yes
 SCRIPT_DIR=$(cd "$(dirname "${GP_SOURCE:-$0}")"; pwd)
 cd "$SCRIPT_DIR"
@@ -10,8 +10,11 @@ ghostplay_cleanup_handler() {
   if [ -d hello ]; then
     rm -rf hello
   fi
-  if [ -d "$HOME/opt/shellspec" ]; then
-    rm -rf "$HOME/opt/shellspec"
+  if [ -d "$HOME/.local/bin/shellspec" ]; then
+    rm "$HOME/.local/bin/shellspec"
+  fi
+  if [ -d "$HOME/.local/lib/shellspec" ]; then
+    rm -rf "$HOME/.local/lib/shellspec"
   fi
 }
 #ghostplay end
@@ -19,20 +22,20 @@ ghostplay_cleanup_handler() {
 # Install shellspec
 curl -fsSL https://git.io/shellspec | sh -s -- --yes
 
-#ghostplay sleep 3
+#ghostplay sleep 2
 
 # Create your project directory
 mkdir hello
 cd hello
 
-#ghostplay sleep 3
+#ghostplay sleep 2
 
 # Initialize
 shellspec --init
 
-#ghostplay sleep 3
+#ghostplay sleep 2
 
-# Write your first specfile (of course you can use your favorite editor)
+# Write your first specfile
 #ghostplay batch
 cat << 'HERE' > spec/hello_spec.sh
 Describe 'hello.sh'
@@ -45,7 +48,7 @@ End
 HERE
 #ghostplay end
 
-#ghostplay sleep 3
+#ghostplay sleep 2
 
 # Create lib/hello.sh
 mkdir lib
@@ -57,12 +60,12 @@ hello() {
 HERE
 #ghostplay end
 
-#ghostplay sleep 3
+#ghostplay sleep 2
 
 # It goes fail because hello function not implemented.
 shellspec
 
-#ghostplay sleep 3
+#ghostplay sleep 2
 
 # Write hello function
 #ghostplay batch
@@ -73,7 +76,7 @@ hello() {
 HERE
 #ghostplay end
 
-#ghostplay sleep 3
+#ghostplay sleep 2
 
 # It goes success!
 shellspec

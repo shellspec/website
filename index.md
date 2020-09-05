@@ -2,118 +2,73 @@
 layout: index
 title: ShellSpec
 ---
-# Let's test the your shell script!
+# Let's have fun testing your shell scripts!
 
-[ShellSpec][shellspec] is a full-featured BDD unit testing framework for dash, bash, ksh, zsh and **all POSIX shells** that
-**provides first-class features** such as [code coverage][coverage], mocking, parallel execution, parameterized testing and more.
-It was developed as a dev/test tool for **cross-platform shell scripts and shell script libraries**.
-Most of features are implemented with pure shell script and minimal POSIX-compliant commands,
-so they work also in restricted environments such as tiny Docker images and embedded systems.
+[ShellSpec][shellspec] is a **full-featured BDD unit testing framework** for dash, bash, ksh, zsh and **all POSIX shells** that provides first-class features such as code coverage, mocking, parallel execution, parameterized testing and more. It was developed as a dev/test tool for **cross-platform shell scripts and shell script libraries**. With lots of practical CLI features and simple yet powerful syntax, it provides you with a fun shell script test environment.
 
 [shellspec]: https://github.com/shellspec/shellspec
 
-[Why I created ShellSpec](why)
+- [Why I created ShellSpec](why.md)
+- [ShellSpec vs shUnit2 vs Bats-core](comparison.md)
 
-## Get started! <!-- omit in toc -->
+## Get started!
 
 <div style="height: 30em;margin-left:30px">
-<script src="https://asciinema.org/a/256723.js" id="asciicast-256723" async data-autoplay="true" data-cols="120" data-rows="25"></script>
+<script src="https://asciinema.org/a/358011.js" id="asciicast-358011" async data-autoplay="true" data-cols="110" data-rows="25"></script>
 </div>
 
-Try the **[Online Demo](demo)** on the browser.
+Try **[Online Demo](demo)** on your browser.
 
-## Table of Contents <!-- omit in toc -->
+## Overview
 
-- [Impressive features](#impressive-features)
-  - [Coverage reporting](#coverage-reporting)
-- [Why use ShellSpec?](#why-use-shellspec)
-  - [1. Comparison with other testing frameworks](#1-comparison-with-other-testing-frameworks)
-  - [2. It's a BDD style](#2-its-a-bdd-style)
-  - [3. Support nestable block with scope](#3-support-nestable-block-with-scope)
-  - [4. Parameterized tests](#4-parameterized-tests)
-  - [5. Fast testing and high portability](#5-fast-testing-and-high-portability)
-  - [6. Modern reporting](#6-modern-reporting)
-  - [7. Coverage and profiler](#7-coverage-and-profiler)
-  - [8. And what you need](#8-and-what-you-need)
+### Unit testing framework
 
-## Impressive features
+ShellSpec is a **unit testing framework** designed to facilitate testing shell functions. It can test small scripts with one file to large scripts with multiple files. Of course, it can be used for various purposes such as functional test of external command and system test.
 
-- Works with **all POSIX compliant shells** (dash, bash, zsh, ksh, busybox, etc...)
-- Minimal dependencies (use only a few basic POSIX-compliant commands)
-- **BDD style specfile compatible with shell script syntax** (can embed shell script)
-- **Structured test using nestable blocks with scoped** (isolation between tests)
-- **Easy to mock and stub** in cooperation with scope
-- Easy to Skip/Pending of the examples
-- Before/After and BeforeAll/BeforeAll hooks
-- **Parameterized examples** for Data-Driven tests
-- **Execution filtering** by line number, id, focus, tag and example name
-- **Quick execution** to run examples that not-passed (or failed) the last time it ran
-- Execution with **trace output** for debugging
-- **Parallel execution**, random ordered execution and dry-run execution
-- Modern reporting (colorized, failed line number, progress / documentation / TAP / JUnit formatter)
-- **Code coverage** ([Kcov](http://simonkagstrom.github.io/kcov/index.html) integration) and Profiler
-- **Friendly with CI and provides Docker images** with ShellSpec pre-installed
-- Built-in project directory generator and simple task runner
-- Extensible architecture (custom assertion, custom matcher, etc...)
-- Subproject: [ShellMetrics](https://github.com/shellspec/shellmetrics) - Cyclomatic Complexity
+### Compatible with all POSIX shells
 
-### Coverage reporting
+ShellSpec is implemented using POSIX-compliant features and works with all POSIX shells, not just Bash. For example, it works with POSIX-compliant shell **dash**, ancient **bash 2.03**, the first POSIX shell **ksh88**, **[busybox-w32](https://frippery.org/busybox/)** ported natively for Windows, etc. It helps you developing shell scripts that work with multiple POSIX shells and environment.
 
-[![Coverage report](coverage.png)](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/coverage/index.html?branch=master)
+- <code>bash</code> _>=2.03_, <code>bosh/pbosh</code> _>=2018/10/07_, <code>posh</code> _>=0.3.14_, <code>yash</code> _>=2.29_, <code>zsh</code> _>=3.1.9_
+- <code>dash</code> _>=0.5.2_, <code>busybox ash</code> _>=1.10.2_, <code>busybox-w32</code>, <code>GWSH</code> _>=20190627_
+- <code>ksh88</code>, <code>ksh93</code> _>=93s_, <code>ksh2020</code>, <code>mksh/lksh</code> _>=R28_, <code>pdksh</code> _>=5.2.14_
+- <code>FreeBSD sh</code>, <code>NetBSD sh</code>, <code>OpenBSD ksh</code>, <code>loksh</code>, <code>oksh</code>
 
+### Minimal dependency
 
-## Why use ShellSpec?
+Most features are implemented in pure shell scripts and use only minimal POSIX-compliant commands. As a result, it works even in restricted environments such as tiny Docker images and embedded systems.
 
-### 1. Comparison with other testing frameworks
+_Requirements_: `cat`, `date`, `env`, `ls`, `mkdir`, `od` (or `hexdump`), `rm`, `sleep`, `sort`, `time`
 
-|                           | ShellSpec                     | shUnit2                   | Bats-core                       |
-| ------------------------- | ----------------------------- | ------------------------- | ------------------------------- |
-| Supported shells          | all POSIX shell               | Bourne shell, POSIX shell | bash only                       |
-| Framework style           | BDD                           | xUnit                     | original                        |
-| Spec / test syntax        | DSL (shell script compatible) | shell script              | original (almost bash)          |
-| Nestable block with scope | support                       | -                         | -                               |
-| Before / After hooks      | support                       | support                   | support                         |
-| Skip / Pending / Focus    | support (all)                 | support (skip only)       | support (skip only)             |
-| Mock / Stub               | support (built-in)            | -                         | - (extension exists)            |
-| Parameterized tests       | support                       | -                         | -                               |
-| Assertion line number     | support (all shells)          | support (limited shells)  | support (bash only)             |
-| Quick execution           | support                       | -                         | -                               |
-| Parallel execution        | support                       | -                         | support (requires GNU parallel) |
-| Random execution          | support                       | -                         | -                               |
-| Filtering by name         | support                       | support                   | support                         |
-| Filtering by line number  | support                       | -                         | -                               |
-| TAP formatter             | support                       | -                         | support                         |
-| JUnit XML formatter       | support                       | -                         | -                               |
-| Coverage                  | support (requires kcov)       | -                         | -                               |
-| Profiler                  | support                       | -                         | -                               |
-| Cyclomatic Complexity     | [ShellMetrics][]              | -                         | -                               |
+### Tested on numerous real shells
 
-- Quick execution: Run only non-passed examples the last time they ran
+The latest shells have been tested with CI ([TravisCI](https://travis-ci.com/shellspec/shellspec) / [CirrusCI](https://cirrus-ci.com/github/shellspec/shellspec)). In addition, the shell used by Debian in the past has been tested using Docker. The oldest Debian is 2.2!
 
-[ShellMetrics]:https://github.com/shellspec/shellmetrics
+See [tested version details](https://github.com/shellspec/shellspec/blob/master/docs/shells.md)
 
-#### Other comparison <!-- omit in toc -->
+### DSL syntax
 
-- [Bash test framework comparison 2020](https://github.com/dodie/testing-in-bash)
+Writes test code in its own DSL. It is compatible with shell scripts and allows you to embed shell script code. This DSL close to natural language doesn't just provide readability. One of the purposes is to avoid the [pitfalls][BashPitfalls] for beginner of shell script developer. And by absorbing the differences between the shells, you can write reliable tests for support multiple shells with a single test code.
 
-### 2. It's a BDD style
+[BashPitfalls]: http://mywiki.wooledge.org/BashPitfalls
 
-ShellSpec is a BDD style unit testing framework. You can write specifications with
-DSL that nearly to natural language. And also those DSL are structured and executable.
+The following are some of the things that DSL does.
 
-ShellSpec is created inspired by RSpec, and it has a DSL suitable for shell scripts.
-And it's a readability even if you are not familiar with shell scripts syntax.
-
-#### Specfile syntax <!-- omit in toc -->
+- Nestable block with scope and mocking
+- Before/After hooks, Data helper, Parameterized test, etc
+- Directives to improve embedded shell scripts
+- Display line number without relying on `$LINENO`
+- Absorption of differences in shell options
+- Numerous workarounds for shell bugs
 
 ```sh
-Describe 'sample' # Example group
+Describe 'sample'
   Describe 'bc command'
     add() { echo "$1 + $2" | bc; }
 
-    It 'performs addition' # Example
-      When call add 2 3 # Evaluation
-      The output should eq 5  # Expectation
+    It 'performs addition'
+      When call add 2 3
+      The output should eq 5
     End
   End
 
@@ -128,226 +83,250 @@ Describe 'sample' # Example group
 End
 ```
 
-#### Comparison with Bats-core <!-- omit in toc -->
+### Mocking
 
-- [Bats-core: Bash Automated Testing System (2018)](https://github.com/bats-core/bats-core)
-
-ShellSpec is less syntax of shell scripts specific, and you can write
-specification in sentences nearly to natural language.
-
-##### Bats-core <!-- omit in toc -->
+There are two mock features, a fast function-based mock for shell functions and a flexible command-based mock for external commands. The mock is released automatically when exit the block, therefore avoiding the mistake of releasing the mock. This is one of the features that many other frameworks don't have, and it makes using mocks simpler.
 
 ```sh
-#!/usr/bin/env bats
+unixtime() { date +%s; }
 
-@test "addition using bc" {
-  result="$(echo 2+2 | bc)"
-  [ "$result" -eq 4 ]
-}
+Describe 'function-based mock'
+  date() {
+    echo 1546268400
+  }
 
-@test "addition using dc" {
-  result="$(echo 2 2+p | dc)"
-  [ "$result" -eq 4 ]
-}
-```
-
-##### ShellSpec <!-- omit in toc -->
-
-```sh
-#shellcheck shell=sh
-
-Example "addition using bc"
-  Data "2+2"
-  When call bc
-  The output should eq 4
-End
-
-Example "addition using dc"
-  Data "2 2+p"
-  When call dc
-  The output should eq 4
-End
-```
-
-#### Comparison with shunit2 <!-- omit in toc -->
-
-[shUnit2 is a xUnit based unit test framework for Bourne based shell scripts.](https://github.com/kward/shunit2)
-
-ShellSpec has structured DSL and readability.
-
-##### shUnit2 <!-- omit in toc -->
-
-```sh
-#! /bin/sh
-# file: examples/math_test.sh
-
-testAdding() {
-  result=`add_generic 1 2`
-  assertEquals \
-      "the result of '${result}' was wrong" \
-      3 "${result}"
-
-  # Disable non-generic tests.
-  [ -z "${BASH_VERSION:-}" ] && startSkipping
-
-  result=`add_bash 1 2`
-  assertEquals \
-      "the result of '${result}' was wrong" \
-      3 "${result}"
-}
-
-oneTimeSetUp() {
-  # Load include to test.
-  . ./math.inc
-}
-
-# Load and run shUnit2.
-. ./shunit2
-```
-
-##### ShellSpec <!-- omit in toc -->
-
-```sh
-#shellcheck shell=sh
-
-Include ./math.inc
-
-Describe 'Adding'
-  It 'adds values'
-    When call add_generic 1 2
-    The output should eq 3
-  End
-
-  Skip if 'non-generic tests' [ -z "${BASH_VERSION:-}" ]
-
-  It 'adds values'
-    When call add_bash 1 2
-    The output should eq 3
-  End
-End
-```
-
-### 3. Support nestable block with scope
-
-ShellSpec supports nested block structure. It realize local variables and
-functions that can only be used within a block.
-
-#### Easy to mock / stub <!-- omit in toc -->
-
-This block structure also allows for simple and intuitive and
-easy-to-understand mock / stub.
-
-```sh
-Describe 'mock / stub sample'
-  unixtime() { date +%s; }
-
-  Example 'The date command has been redefined'
-    date() { echo 1546268400; }
+  It 'is just define a function'
     When call unixtime
     The output should eq 1546268400
   End
+End
 
-  Example 'The date command has not been redefined'
+Describe 'command-based mock'
+  Mock date
+    echo 1546268400
+  End
+
+  It 'creates executable command on the preferred path'
     When call unixtime
-    The output should not eq 1546268400
+    The output should eq 1546268400
   End
 End
 ```
 
-### 4. Parameterized tests
+### Data helper
 
-Supported parameterized tests to perform a test with only the parameters changed.
-Also supported parameters by matrix definitions and dynamic parameters by code.
+Data Helper can easily provide stdin data. It doesn't break the indent unlike here documents.
 
-```
-Describe 'example'
-  Parameters
-    "#1" 1 2 3
-    "#2" 1 2 3
+```sh
+Describe 'Data helper'
+  Data # Use Data:expand instead if you want to expand variables.
+    #|item1 123
+    #|item2 456
+    #|item3 789
   End
 
-  Example "example $1"
+  It 'provides stdin data'
+    When call awk '{total+=$2} END{print total}'
+    The output should eq 1368
+  End
+End
+```
+
+### Parameterized test
+
+Parameterized tests (aka Data-Driven test) provide the ability to run the same test with different parameters. The syntax is surprisingly simple and you can easily rewrite regular tests into parameterized tests. It can also be defined by matrix definition or dynamically definition by shell script code.
+
+```sh
+Describe 'parameters'
+  Parameters
+    "#1" 1 2 3
+    "#2" 4 5 9
+  End
+
+  It "performs a parameterized test ($1)"
+    When call echo "$(($2 + $3))"
+    The output should eq "$4"
+  End
+End
+
+Describe 'matrix parameters'
+  Parameters:matrix
+    foo bar
+    1 2
+  End
+
+  It "generates matrix parameters ($1 : $2)"
+    When call touch "name_$1_$2"
+    The file "name_$1_$2" should be exists
+  End
+End
+
+Describe 'dynamic parameters'
+  Parameters:dynamic
+    for i in 1 2 3; do
+      %data "#$i" "$i" "$(($i*2))" "$(($i + $i*2))"
+    done
+  End
+
+  It "generates parameter by shell script code ($1)"
     When call echo "$(($2 + $3))"
     The output should eq "$4"
   End
 End
 ```
 
-### 5. Fast testing and high portability
+### Directives
 
-"Fast" has two meanings. Testing cycles is fast, Execution speed is fast.
+Directives are convenient instructions that you can use in embedded shell scripts. `%=` (`%putsn`) is a portable version of `echo` that absorbs the differences between shells. `%text` can output multiple lines of text without breaking the indentation. These solve problem with shell script code in writing test code.
 
-If failed your tests, display error with the line number.
-You can easily rerun only failed tests using Quick execution.
-You can also rerun using the line number or spec description.
+```sh
+Describe 'directives'
+  It 'makes embedded shell script easier'
+    output() {
+      %= "foo"
+      %= "bar"
+      %= "baz"
+    }
 
-<script src="https://asciinema.org/a/256058.js" id="asciicast-256058" async data-cols="100" data-rows="24"></script>
+    result() {
+      %text
+      #|foo
+      #|bar
+      #|baz
+    }
 
-If you want to run specific test only, you can use `--focus` option to run
-focused tests. (To focus, prepend 'f' to groups / examples in specfiles.
-e.g. `Describe` -> `fDescribe`, `It` -> `fIt`, etc.)
+    When call output
+    The output should eq "$(result)"
+  End
+End
+```
 
-If you want to temporarily skip some tests, prepend 'x' to groups / examples in
-specfiles (like `xDescribe`, `xIt`, etc.)
+### Sandbox mode
 
-Those features provide fast testing cycles.
+Make empty the `PATH` environment variable (except internally used path) and prevent execution of external commands. This will prevent mistakes such as executing dangerous commands unintentionally during development. This mode assumes use of mocks, but you can also execute real commands if you need to.
 
-And more, ShellSpec implements parallel execution. It may increase speed running
-tests depending on your tests and the testing hardware.
+```sh
+Describe 'sandbox mode'
+  sed() { # External command cannot be executed without mock
+    @sed "$@" # Run real command
+  }
 
-For those who care about the order of test execution,
-It is also possible to run in random order.
+  It 'cannot run external commands without mocking'
+    Data "foo"
+    When call sed 's/f/F/g'
+    The output should eq "Foo"
+  End
+End
+```
 
-Those features are available in all POSIX compliant shells.
-Implemented by using shell script and few basic POSIX compliant command only. (really!)
-Because there are few external command calls, It is fast and portable.
+*Note: The `@sed` command above is a "support command" which generated by `shellspec --gen-bin @sed`.*
 
-### 6. Modern reporting
+### Quick mode
 
-ShellSpec has modern reporting. When a spec fails, it can be reported in various formats.
+Enabling quick mode allows you to rerun only the failed tests quickly. The test to be re-executed is automatically determined. There is no hassles.
 
-#### progress formatter (default) <!-- omit in toc -->
+<script src="https://asciinema.org/a/357964.js" id="asciicast-357964" async data-cols="110" data-rows="26" data-t="999"></script>
 
-<script src="https://asciinema.org/a/255960.js" id="asciicast-255960" async data-cols="100" data-rows="24" data-autoplay="true"></script>
+### Parallel execution
 
-#### documentation formatter <!-- omit in toc -->
+Execution speed is also important, and it runs at a comfortable speed that you cannot think of as a shell script. In addition, using parallel execution can reduce test execution time by executing multiple tests in parallel.
 
-<script src="https://asciinema.org/a/255961.js" id="asciicast-255961" async data-cols="100" data-rows="37" data-autoplay="true"></script>
+<script src="https://asciinema.org/a/357965.js" id="asciicast-357965" async data-cols="110" data-rows="26" data-t="999"></script>
 
-#### TAP formatter <!-- omit in toc -->
+### Random execution
 
-<script src="https://asciinema.org/a/255962.js" id="asciicast-255962" async data-cols="100" data-rows="12" data-autoplay="true"></script>
+You can find problems that depend on the test order by randomly changing the test execution order. You can also run the tests in the same order as last time by specifying a seed.
 
-#### JUnit XML formatter <!-- omit in toc -->
+<script src="https://asciinema.org/a/357966.js" id="asciicast-357966" async data-cols="110" data-rows="24" data-t="999"></script>
 
-<script src="https://asciinema.org/a/255963.js" id="asciicast-255963" async data-cols="100" data-rows="22" data-autoplay="true"></script>
+### Execution tracing
 
-### 7. Coverage and profiler
+Suppresses unnecessary output and provides a truly useful xtrace features. It is useful for debugging.
 
-ShellSpec integrated with [kcov](http://simonkagstrom.github.io/kcov/index.html) for easy to coverage.
+<script src="https://asciinema.org/a/357968.js" id="asciicast-357968" async data-cols="110" data-rows="32" data-t="999"></script>
 
-<script src="https://asciinema.org/a/256357.js" id="asciicast-256357" async data-cols="100" data-rows="17" data-autoplay="true"></script>
+### Profiler
 
-This is [coverage report][coverage] of ShellSpec. Also, kcov can be integrate with [Coveralls][coveralls], [Codecov][codecov] and etc.
+You can use the profiler to find and improve slow tests.
 
-[coverage]: https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/coverage/index.html
-[coveralls]: https://coveralls.io/github/shellspec/shellspec
-[codecov]: https://codecov.io/gh/shellspec/shellspec
+<script src="https://asciinema.org/a/357970.js" id="asciicast-357970" async data-cols="110" data-rows="22" data-t="999"></script>
 
-Note: Coverage support is bash, ksh, zsh only.
+### Modern reporintg
 
-### 8. And what you need
+Test results are displayed in modern, colorful and easy-to-read reports, such as simple dot style and documentation style. Failed tests are displayed in detail with line numbers so you can quickly identify the problem test.
 
-Besides, ShellSpec has the necessary features for unit testing.
+#### Progress (dot) formatter
 
-- `Before`/`After` and `BeforeAll`/`AfterAll` hooks for preparation and cleaning up.
-- `Skip` to skip example / `Pending` to indicate the to be implementation.
-- `Data` helper that easy to input from stdin.
-- `%text` directive that easier to use than heredoc at indented code.
-- `%puts` (`%=`) / `%putsn` (`%=`) directive that can be used in place of non-portable `echo`.
-- Built-in simple task runner
+<script src="https://asciinema.org/a/255960.js" id="asciicast-255960" async data-cols="110" data-rows="24" data-t="999"></script>
 
-ShellSpec is designed with an extensible architecture, so you can create
-custom matcher, custom modifier and so on.
+#### Documentation formatter
 
-ShellSpec is a powerful but simple to use. Let's enjoy test with [shellspec](https://github.com/shellspec/shellspec)!
+<script src="https://asciinema.org/a/255961.js" id="asciicast-255961" async data-cols="110" data-rows="37" data-t="999"></script>
+
+### Generator
+
+Test results can be output to a file separately from the report display function on the screen. The same formatter as the reporting can be used, and it can be easily linked with CI using TAP ([Test Anything Protocol](https://testanything.org/)) format and jUnit XML format. You can also output multiple formats in one test run.
+
+#### TAP formatter
+
+```tap
+1..8
+ok 1 - calc.sh add() 1 + 1 = 2
+ok 2 - calc.sh add() 1 + 10 = 11
+ok 3 - calc.sh sub() 1 - 1 = 0
+ok 4 - calc.sh sub() 1 - 10 = -9
+ok 5 - calc.sh mul() 1 * 1 = 1
+ok 6 - calc.sh mul() 1 * 10 = 10
+ok 7 - calc.sh div() 1 / 1 = 1
+not ok 8 - calc.sh div() 1 / 10 = 0.1 # FAILED
+```
+
+#### jUnit XML formatter
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="8" failures="1" time="0.31" name="">
+  <testsuite id="0" tests="8" failures="1" skipped="0" name="spec/calc_spec.sh" hostname="localhost"
+ timestamp="2019-07-06T13:39:59">
+    <testcase classname="spec/calc_spec.sh" name="calc.sh add() 1 + 1 = 2"></testcase>
+    <testcase classname="spec/calc_spec.sh" name="calc.sh add() 1 + 10 = 11"></testcase>
+    <testcase classname="spec/calc_spec.sh" name="calc.sh sub() 1 - 1 = 0"></testcase>
+    <testcase classname="spec/calc_spec.sh" name="calc.sh sub() 1 - 10 = -9"></testcase>
+    <testcase classname="spec/calc_spec.sh" name="calc.sh mul() 1 * 1 = 1"></testcase>
+    <testcase classname="spec/calc_spec.sh" name="calc.sh mul() 1 * 10 = 10"></testcase>
+    <testcase classname="spec/calc_spec.sh" name="calc.sh div() 1 / 1 = 1"></testcase>
+    <testcase classname="spec/calc_spec.sh" name="calc.sh div() 1 / 10 = 0.1">
+      <failure message="The output should equal 0.1">expected: &quot;0.1&quot;
+     got: 0
+
+# spec/calc_spec.sh:48</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
+```
+
+### Code coverage
+
+Easily measure code coverage with [Kcov](https://github.com/SimonKagstrom/kcov) integration. Coverage reports are output as [HTML](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/coverage/index.html?branch=master) files and compatible formats with coverage measurement services such as [Coveralls](https://coveralls.io/github/shellspec/shellspec?branch=master), [Code Climate](https://codeclimate.com/github/shellspec/shellspec) and [Codecov](https://codecov.io/gh/shellspec/shellspec).
+
+*Note: This feature is only available with Bash, Ksh, Zsh and Kcov is required.*
+
+[![Coverage report](coverage.png)](https://circleci.com/api/v1.1/project/github/shellspec/shellspec/latest/artifacts/0/coverage/index.html?branch=master)
+
+### Run tests inside a Docker container (experimental)
+
+By executing the test with the specified Docker image, you can perform the test in the same environment without worrying about the influence on the host environment.
+
+*Note: Docker required.*
+
+<script src="https://asciinema.org/a/357984.js" id="asciicast-357984" async data-cols="110" data-rows="16" data-t="999"></script>
+
+## Projects using ShellSpec
+
+- [jenkins-x/terraform-google-jx](https://github.com/jenkins-x/terraform-google-jx) - A Terraform module for creating Jenkins X infrastructure on Google Cloud
+- [snyk/snyk](https://github.com/snyk/snyk/tree/master/test/smoke) - CLI and build-time tool to find & fix known vulnerabilities in open-source dependencies
+
+## Subproject
+
+- [ShellMetrics](https://github.com/shellspec/shellmetrics) - Cyclomatic Complexity Analyzer for shell scripts
+- [ShellBench](https://github.com/shellspec/shellbench) - A benchmark utility for POSIX shell comparison
