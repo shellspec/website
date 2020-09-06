@@ -19,7 +19,7 @@ ghostplay_cleanup_handler() {
 }
 #ghostplay end
 
-# Install shellspec
+# Install ShellSpec
 curl -fsSL https://git.io/shellspec | sh -s -- --yes
 
 #ghostplay sleep 2
@@ -40,9 +40,12 @@ shellspec --init
 cat << 'HERE' > spec/hello_spec.sh
 Describe 'hello.sh'
   Include lib/hello.sh
-  Example 'hello'
-    When call hello shellspec
-    The output should equal 'Hello shellspec!'
+
+  Describe 'hello()'
+    It 'says hello'
+      When call hello shellspec
+      The output should equal 'Hello shellspec!'
+    End
   End
 End
 HERE
