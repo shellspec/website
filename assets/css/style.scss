@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+html {
+  overflow-y: scroll;
+}
+
 .inner {
   max-width: 800px;
 }
@@ -34,6 +38,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #2aa198;
 }
 
+#project_title {
+  line-height: 1;
+}
+
 #project_title a {
   color: #ffffff;
   font-size: 32px;
@@ -43,10 +51,21 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 16px;
 }
 
+#forkme_banner {
+  padding: 5px 50px 5px 10px
+}
+
 #header_wrap .inner {
   padding: 20px 10px;
 }
 
 footer p {
   margin: 0px;
+}
+
+#demo-player {
+  height: 34.3em;
+  margin: 20px 31px;
+  font-size: 12px;
+  background-color: #121314;
 }

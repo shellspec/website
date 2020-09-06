@@ -13,7 +13,7 @@ title: ShellSpec
 
 ## Get started!
 
-<div style="height: 30em;margin-left:30px">
+<div id="demo-player">
 <script src="https://asciinema.org/a/358055.js" id="asciicast-358055" async data-autoplay="true" data-cols="110" data-rows="25"></script>
 </div>
 
