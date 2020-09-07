@@ -4,7 +4,7 @@ title: ShellSpec
 ---
 # Let's have fun testing your shell scripts!
 
-[ShellSpec][shellspec] is a **full-featured BDD unit testing framework** for dash, bash, ksh, zsh and **all POSIX shells** that provides first-class features such as code coverage, mocking, parallel execution, parameterized testing and more. It was developed as a dev/test tool for **cross-platform shell scripts and shell script libraries**. With lots of practical CLI features and simple yet powerful syntax, it provides you with a fun shell script test environment.
+[ShellSpec][shellspec] is a **full-featured BDD unit testing framework** for dash, bash, ksh, zsh and **all POSIX shells** that provides first-class features such as **code coverage**, **mocking**, **parallel execution**, **parameterized testing** and more. It was developed as a dev/test tool for cross-platform shell scripts and shell script libraries. With lots of practical CLI features and simple yet powerful syntax, it provides you with a fun shell script test environment.
 
 [shellspec]: https://github.com/shellspec/shellspec
 
@@ -13,99 +13,7 @@ title: ShellSpec
 
 ## Get started!
 
-<style>
-@import "{{ site.theme }}";
-
-html {
-  overflow-y: scroll;
-}
-
-.inner {
-  max-width: 800px;
-}
-
-img {
-  max-width: initial;
-}
-
-code {
-  font-size: 80%;
-  background-color: #f8f8f8;
-}
-
-ul {
-  margin-left: 1em;
-}
-
-@media screen and (max-width: 992px) {
-  img {
-    max-width: 100%;
-  }
-}
-
-#main_content h1 {
-  color: #dd3c69;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #2aa198;
-}
-
-#project_title {
-  line-height: 1;
-}
-
-#project_title a {
-  color: #ffffff;
-  font-size: 32px;
-}
-
-#project_tagline {
-  font-size: 16px;
-}
-
-#forkme_banner {
-  padding: 5px 50px 5px 10px
-}
-
-#header_wrap .inner {
-  padding: 20px 10px;
-}
-
-footer p {
-  margin: 0px;
-}
-
-#demo-player {
-  height: 34.3em;
-  margin: 20px 31px;
-  font-size: 12px;
-  background-color: #121314;
-}
-
-@keyframes loading {
-  from { width: 50px; }
-  to { width: 80%; }
-}
-
-#demo-player::before {
-  position: absolute;
-  content: "Loading......................................................................................................................................................";
-  z-index: -10;
-  color: #2e6f02;
-  padding: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 80%;
-  animation-name: loading;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-}
-</style>
 <div id="demo-player">
-<span style="position:absolute">aaaaaaaaaaa</span>
 <script src="https://asciinema.org/a/358055.js" id="asciicast-358055" async data-autoplay="true" data-cols="110" data-rows="25"></script>
 </div>
 

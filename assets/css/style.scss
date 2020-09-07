@@ -67,28 +67,5 @@ footer p {
   height: 34.3em;
   margin: 20px 31px;
   font-size: 12px;
-  background-color: #121314;
+  background: url(/preview.gif) #121314;
 }
-
-/*
-@keyframes loading {
-  from { width: 50px; }
-  to { width: 80%; }
-}
-
-#demo-player::before {
-  position: absolute;
-  content: "Loading......................................................................................................................................................";
-  z-index: -10;
-  color: #2e6f02;
-  padding: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 80%;
-  animation-name: loading;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-}
-*/
