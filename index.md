@@ -40,9 +40,11 @@ Most features are implemented in pure shell scripts and use only minimal POSIX-c
 
 _Requirements_: `cat`, `date`, `env`, `ls`, `mkdir`, `od` (or `hexdump`), `rm`, `sleep`, `sort`, `time`
 
-### Tested on numerous real shells
+### Tested on numerous real shells and OSs
 
 The latest shells have been tested with CI ([TravisCI](https://travis-ci.com/shellspec/shellspec) / [CirrusCI](https://cirrus-ci.com/github/shellspec/shellspec)). In addition, the shell used by Debian in the past has been tested using Docker. The oldest Debian is 2.2!
+
+The operating systems that have been confirmed to work are Linux, macOS, Windows, BSD, Solaris and AIX.
 
 See [tested version details](https://github.com/shellspec/shellspec/blob/master/docs/shells.md)
 
