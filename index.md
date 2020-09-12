@@ -48,6 +48,10 @@ The operating systems that have been confirmed to work are Linux, macOS, Windows
 
 See [tested version details](https://github.com/shellspec/shellspec/blob/master/docs/shells.md)
 
+### Testing a single file script
+
+Shell scripts often consist of a single file. ShellSpec also supports testing functions and mocking of contained in such scripts. (needs a few script modification.)
+
 ### DSL syntax
 
 Writes test code in its own DSL. It is compatible with shell scripts and allows you to embed shell script code. This DSL close to natural language doesn't just provide readability. One of the purposes is to avoid the [pitfalls][BashPitfalls] for beginner of shell script developer. And by absorbing the differences between the shells, you can write reliable tests for support multiple shells with a single test code.
