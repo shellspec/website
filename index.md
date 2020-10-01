@@ -30,7 +30,7 @@ ShellSpec is a **unit testing framework** designed to facilitate testing shell f
 ShellSpec is implemented using POSIX-compliant features and works with all POSIX shells, not just Bash. For example, it works with POSIX-compliant shell **dash**, ancient **bash 2.03**, the first POSIX shell **ksh88**, **[busybox-w32](https://frippery.org/busybox/)** ported natively for Windows, etc. It helps you developing shell scripts that work with multiple POSIX shells and environment.
 
 - <code>bash</code> _>=2.03_, <code>bosh/pbosh</code> _>=2018/10/07_, <code>posh</code> _>=0.3.14_, <code>yash</code> _>=2.29_, <code>zsh</code> _>=3.1.9_
-- <code>dash</code> _>=0.5.2_, <code>busybox ash</code> _>=1.10.2_, <code>busybox-w32</code>, <code>GWSH</code> _>=20190627_
+- <code>dash</code> _>=0.5.4_, <code>busybox ash</code> _>=1.20.0_, <code>busybox-w32</code>, <code>GWSH</code> _>=20190627_
 - <code>ksh88</code>, <code>ksh93</code> _>=93s_, <code>ksh2020</code>, <code>mksh/lksh</code> _>=R28_, <code>pdksh</code> _>=5.2.14_
 - <code>FreeBSD sh</code>, <code>NetBSD sh</code>, <code>OpenBSD ksh</code>, <code>loksh</code>, <code>oksh</code>
 
