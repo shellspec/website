@@ -23,7 +23,7 @@ Try **[Online Demo](demo)** on your browser.
 
 ### Unit testing framework
 
-ShellSpec is a **unit testing framework** designed to facilitate testing shell functions. It can test small scripts with one file to large scripts with multiple files. Of course, it can be used for various purposes such as functional test of external command and system test.
+ShellSpec is a **unit testing framework** designed to facilitate testing shell scripts (especially shell functions). Use the Behavior-Driven Development (BDD) style syntax to accelerate development with Test-driven development (TDD). It can test small scripts with one file to large scripts with multiple files. Of course, it can be used for various purposes such as functional test of external command and system test.
 
 ### Compatible with all POSIX shells
 
