@@ -233,6 +233,8 @@ Enabling quick mode allows you to rerun only the failed tests quickly. The test 
 
 <script src="https://asciinema.org/a/357964.js" id="asciicast-357964" async data-cols="110" data-rows="26" data-t="999"></script>
 
+The combination of quick mode and pending is an efficient way to perform Test-Driven Development (TDD). Tests that are set on pending will be rerun on both failures and successes. This means that you can do a TDD cycle, RED -> GREEN -> REFACTOR.
+
 ### Parallel execution
 
 Execution speed is also important, and it runs at a comfortable speed that you cannot think of as a shell script. In addition, using parallel execution can reduce test execution time by executing multiple tests in parallel.
