@@ -334,7 +334,22 @@ By executing the test with the specified Docker image, you can perform the test 
 - [jenkins-x/terraform-google-jx](https://github.com/jenkins-x/terraform-google-jx) - A Terraform module for creating Jenkins X infrastructure on Google Cloud
 - [snyk/snyk](https://github.com/snyk/snyk/tree/master/test/smoke) - CLI and build-time tool to find & fix known vulnerabilities in open-source dependencies
 
-## Subproject
+## Subprojects
 
-- [ShellMetrics](https://github.com/shellspec/shellmetrics) - Cyclomatic Complexity Analyzer for shell scripts
-- [ShellBench](https://github.com/shellspec/shellbench) - A benchmark utility for POSIX shell comparison
+### ShellMetrics - Cyclomatic Complexity Analyzer for shell scripts
+
+URL: [https://github.com/shellspec/shellmetrics](https://github.com/shellspec/shellmetrics)
+
+### ShellBench - A benchmark utility for POSIX shell comparison
+
+URL: [https://github.com/shellspec/shellbench](https://github.com/shellspec/shellbench)
+
+## Related projects
+
+### getoptions - An elegant option parser and generator for shell scripts
+
+URL: [https://github.com/ko1nksm/getoptions](https://github.com/ko1nksm/getoptions)
+
+### readlinkf - readlink -f implementation for shell scripts
+
+URL: [https://github.com/ko1nksm/readlinkf](https://github.com/ko1nksm/readlinkf)
