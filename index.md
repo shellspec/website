@@ -259,7 +259,7 @@ You can use the profiler to find and improve slow tests.
 
 <script src="https://asciinema.org/a/357970.js" id="asciicast-357970" async data-cols="110" data-rows="22" data-t="999"></script>
 
-### Modern reporintg
+### Modern reporting
 
 Test results are displayed in modern, colorful and easy-to-read reports, such as simple dot style and documentation style. Failed tests are displayed in detail with line numbers so you can quickly identify the problem test.
 
