@@ -24,7 +24,7 @@ title: ShellSpec vs shUnit2 vs Bats-core
 | Filtering by name         | support                       | support                   | support                         |
 | Filtering by line number  | support                       | -                         | -                               |
 | TAP formatter             | support                       | -                         | support                         |
-| JUnit XML formatter       | support                       | -                         | -                               |
+| JUnit XML formatter       | support                       | -                         | support                         |
 | Coverage                  | support (requires kcov)       | -                         | -                               |
 | Profiler                  | support                       | -                         | -                               |
 
