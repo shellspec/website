@@ -333,6 +333,7 @@ By executing the test with the specified Docker image, you can perform the test 
 
 - [jenkins-x/terraform-google-jx](https://github.com/jenkins-x/terraform-google-jx) - A Terraform module for creating Jenkins X infrastructure on Google Cloud
 - [snyk/snyk](https://github.com/snyk/snyk/tree/master/test/smoke) - CLI and build-time tool to find & fix known vulnerabilities in open-source dependencies
+- [Cray-HPE/cani](https://github.com/Cray-HPE/cani/tree/main/spec) - CLI tool for hardware inventory
 
 ## Subprojects / Related projects
 
