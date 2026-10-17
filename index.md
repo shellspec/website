@@ -332,7 +332,6 @@ By executing the test with the specified Docker image, you can perform the test 
 ## Projects using ShellSpec
 
 - [jenkins-x/terraform-google-jx](https://github.com/jenkins-x/terraform-google-jx) - A Terraform module for creating Jenkins X infrastructure on Google Cloud
-- [snyk/snyk](https://github.com/snyk/snyk/tree/master/test/smoke) - CLI and build-time tool to find & fix known vulnerabilities in open-source dependencies
 
 ## Subprojects / Related projects
 
